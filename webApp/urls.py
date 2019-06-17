@@ -25,5 +25,6 @@ urlpatterns = [
     url(r'products/', include('products.urls')),
     url(r'shop/', include('shop.urls')),
     url(r'cart/', include('basket.urls')),
+    url(r'calculator/', include('calculator.urls')),
     url(r'^tinymce/', include('tinymce.urls'))
 ]

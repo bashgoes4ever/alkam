@@ -1,0 +1,22 @@
+{% extends 'site.html' %}
+{% load static %}
+
+{% block title %}Калькулятор{% endblock %}
+
+
+{% block body %}
+
+    <section class="calculator-block" style="padding: 40px 0; text-align: center;">
+        <div class="container">
+            <iframe src="//service-online.su/text/calc/calc1-01.php"
+                    scrolling="no"
+                    frameborder="0"
+                    height="370px"
+                    width="650px"
+                    marginheight="0"
+                    marginwidth="0"
+            ></iframe>
+        </div>
+    </section>
+
+{% endblock %}

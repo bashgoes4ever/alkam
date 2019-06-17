@@ -147,17 +147,3 @@ EMAIL_HOST = 'smtp.timeweb.ru'
 EMAIL_HOST_USER = 'mail@axis-marketing.ru'
 EMAIL_HOST_PASSWORD = 'qwer1234'
 
-DEBUG = False
-ALLOWED_HOSTS = ['*']
-
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'alkamdb',
-        'USER': 'alkambd',
-        'PASSWORD': 'alkambdadmin',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
