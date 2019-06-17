@@ -1,0 +1,54 @@
+{% extends 'site.html' %}
+{% load static %}
+{% block title %}Услуги{% endblock %}
+
+{% block body %}
+
+<section class="block14">
+				<div class="container">
+					<div class="section__title">Оказываем комплекс услуг <span>по обработке металлопроката</span></div>
+					<div class="block14__tabs block11__tabs">
+                        {% for category in categories %}
+						<div class="block14__tab block11__tab{% if forloop.counter == 1 %} block11__tab-active{% endif %}">
+                            <span>{{ category.title }}</span>
+                        </div>
+                        {% endfor %}
+					</div>
+					<div class="block14__items">
+                        {% for category in categories %}
+						<div class="block14__item{% if forloop.counter == 1 %} block14__item-active{% endif %}">
+                            {% for item in category.service_set.all %}
+							<div style="background-image: url('/{{ item.image.url }}');" class="block14__card">
+								<div class="title">{{ item.title }}</div>
+							</div>
+                            {% endfor %}
+						</div>
+                        {% endfor %}
+					</div>
+				</div>
+			</section>
+			<section class="block15"><img src="{% static 'img/block15/bg.png' %}" alt="" class="block__bg"/>
+				<div class="container">
+					<div class="block15__flex">
+						<div class="section__title">Услуги по обработке <br>металлопроката</div>
+						<div class="text">Наша компания предлагает полный комплекс услуг по термической обработке металлов. Наши специалисты готовы выполнить работы любой сложности «под ключ» в рамках серийного изготовления деталей или индивидуального заказа. <br><br>Мы несём финансовую ответственность за соблюдение сроков, оговоренных в договоре: при их несоблюдении будет предоставлена скидка. У нас есть достаточно мощная техническая база, которая позволяет выполнять любой из видов металлообработки, чтобы изготовить изделие высокого качества в полном соответствии с требованиями технического задания.</div>
+					</div>
+				</div>
+			</section>
+			<section class="block7 block16">
+				<div class="container">
+					<form class="block7__form" action="{% url 'send_form' %}">
+						<div class="section__title">Необходимы услуги по <br>резке или термообработке <br>металлопроката ?</div>
+						<div class="descriptor">Звоните, мы выполним любые задачи <br>в кратчайшие сроки</div>
+						<input type="text" name="name" placeholder="Введите имя"/>
+						<input type="text" name="phone" placeholder="Введите телефон" required="required"/>
+						<textarea name="text" placeholder="Укажите необходимые задачи"></textarea>
+                        {% csrf_token %}
+						<input type="hidden" name="type" value="Заявка на КП / Услуги"/>
+						<button class="button">Заказать звонок</button>
+					</form><img src="{% static 'img/block16/1.png' %}" alt="" class="block16__img"/>
+				</div>
+			</section>
+
+
+{% endblock %}

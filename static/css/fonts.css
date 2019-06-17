@@ -1,0 +1,24 @@
+@font-face{
+	font-family: 'Gotham';
+	src: url('../fonts/GothaProReg.otf');
+	font-style: normal;
+	font-weight: normal;
+}
+@font-face{
+	font-family: 'Gotham';
+	src: url('../fonts/GothaProBol.otf');
+	font-style: normal;
+	font-weight: bold;
+}
+@font-face{
+	font-family: 'pfd';
+	src: url('../fonts/pfdindisplaypro-reg.ttf');
+	font-style: normal;
+	font-weight: normal;
+}
+@font-face{
+	font-family: 'pfd';
+	src: url('../fonts/pfdindisplaypro-bold.ttf');
+	font-style: normal;
+	font-weight: bold;
+}

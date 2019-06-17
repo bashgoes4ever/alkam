@@ -1,0 +1,133 @@
+{% extends 'site.html' %}
+{% load static %}
+
+
+{% block title %}О компании{% endblock %}
+
+{% block body %}
+
+            <section class="block9">
+                <img src="{% static 'img/block9/bg.png' %}" alt="" class="block__bg"/>
+				<div class="container">
+					<div class="block9__left">
+						<div class="title">о компании</div>
+						<div class="text">Производственная компания ООО "АЛКАМ плюс" существует на рынке изготовления полуфабрикатов из цветных и черных металлов с 2002 года.<br><br>В настоящее время выбрано основное направление деятельности компании - это развитие и совершенствование технологических процессов изготовления полуфабрикатов из AL и его сплавов. <br><br>Мы не просто торгуем готовыми полуфабрикатами как это делает множество компаний. Мы развиваем своё производство листов и плит с различными видами термообработки : закалка, отжиг, искусственное старение.</div>
+					</div>
+					<div style="background-image: url(&quot;{% static 'img/block9/1.png' %}&quot;);" class="block9__right"></div>
+				</div>
+			</section>
+			<section class="block10">
+				<div class="container">
+					<div class="block3__flex block10__flex">
+						<div class="block3__item block10__item">
+							<div class="block3__item__img block10__item__img1"><img src="{% static 'img/block10/1.png' %}" alt=""/></div>
+							<div class="title">Компания аккредитована <br>на тендерных площадках</div>
+							<div class="text">Мы исполняем контракты <br>в соответствии с федеральными <br>законами №44-ФЗ №223-ФЗ №275-ФЗ</div>
+						</div>
+						<div class="block3__item block10__item">
+							<div class="block3__item__img block10__item__img2"><img src="{% static 'img/block10/2.png' %}" alt=""/></div>
+							<div class="title">Уставной капитал <br>компании 10 млн.р </div>
+							<div class="text">Компания имеет уставной капитал <br>более 10 млн.р что является гарантией <br>исполнения обязательств</div>
+						</div>
+						<div class="block3__item block10__item">
+							<div class="block3__item__img block10__item__img3"><img src="{% static 'img/block10/3.png' %}" alt=""/></div>
+							<div class="title">Партнеры по РФ более <br>150 предприятий</div>
+							<div class="text">Мы имеем партнерские отношения <br>с более 150 предприятиями на <br>територии РФ и СНГ</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="block11">
+				<div class="container">
+					<div class="section__title">На производственной площадке ООО «АЛКАМ плюс» <br>размещается следующее <span>оборудование:</span></div>
+					<div class="block11__tabs">
+                        {% for equipment in equipments %}
+						<div class="block11__tab{% if forloop.counter == 1 %} block11__tab-active{% endif %}">
+                            <span>{{ equipment.tab }}</span>
+                        </div>
+                        {% endfor %}
+					</div>
+					<div class="block11__items">
+                        {% for equipment in equipments %}
+						<div class="block11__item{% if forloop.counter == 1 %} block11__item-active{% endif %}">
+							<div class="block11__left">
+								<div class="title">
+                                    {{ equipment.title|safe }}
+                                </div>
+								<ul>
+                                    {% for li in equipment.equipmentlistobject_set.all %}
+									<li>
+                                        <span class="num">
+                                            {% if forloop.counter > 9 %}
+                                                {{ forloop.counter }}
+                                            {% else %}
+                                                0{{ forloop.counter }}
+                                            {% endif %}
+                                        </span>
+                                        <span class="text">{{ li.text }}</span>
+                                    </li>
+                                    {% endfor %}
+								</ul>
+							</div>
+							<div class="block11__right clearfix">
+								<div class="swiper-container block11__main-slider">
+									<div class="swiper-wrapper">
+                                        {% for img in equipment.equipmentimages_set.all %}
+										<div style="background-image: url('/{{ img.image.url }}');" class="swiper-slide"></div>
+                                        {% endfor %}
+									</div>
+								</div>
+								<div class="swiper-container block11__thumbs-slider">
+									<div class="swiper-wrapper">
+                                        {% for img in equipment.equipmentimages_set.all %}
+										<div style="background-image: url('/{{ img.image.url }}');" class="swiper-slide"></div>
+                                        {% endfor %}
+									</div>
+								</div>
+							</div>
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+			</section>
+			<section class="block12"><img src="{% static 'img/block12/bg.png' %}" alt="" class="block__bg"/>
+				<div class="container">
+					<div class="section__title">Осуществляем поставки металлопроката <br><span>крупнейшим государственным компаниям</span></div>
+					<div class="block12__flex">
+						<div class="block12__item"><img src="{% static 'img/block12/1.png' %}" alt=""/></div>
+						<div class="block12__item"><img src="{% static 'img/block12/2.png' %}" alt=""/></div>
+						<div class="block12__item"><img src="{% static 'img/block12/3.png' %}" alt=""/></div>
+						<div class="block12__item"><img src="{% static 'img/block12/4.png' %}" alt=""/></div>
+						<div class="block12__item"><img src="{% static 'img/block12/5.png' %}" alt=""/></div>
+						<div class="block12__item"><img src="{% static 'img/block12/6.png' %}" alt=""/></div>
+					</div>
+				</div>
+			</section>
+			<section class="block7">
+				<div class="container">
+					<form class="block7__form" action="{% url 'send_form' %}">
+						<div class="section__title">Вам нужен надёжный <br>поставщик ? </div>
+						<div class="descriptor">Заполните форму и получите персональное <br>коммерческое предложение</div>
+						<div class="fieldset">
+							<input type="text" name="mark" placeholder="Марка, размер*" required="required"/>
+							<input type="text" name="business" placeholder="Род деятельности"/>
+							<input type="text" name="phone" placeholder="Номер телефона*" required="required"/>
+							<input type="text" name="name" placeholder="Контактное лицо*" required="required"/>
+						</div>
+						<input type="text" name="company_name" placeholder="Наименование предприятия или ИП*" required="required"/>
+                        {% csrf_token %}
+						<textarea name="text" placeholder="Комментарии к заказу"></textarea>
+						<input type="hidden" name="type" value="Заявка на КП / О компании"/>
+						<button class="button">Получить коммерческое предложение</button>
+						<div class="checkbox">
+							<input type="checkbox" id="c1" checked="checked"/>
+							<label for="c1">
+								<div class="box"><img src="{% static 'img/icons/check.png' %}" alt=""/></div><span>Я принимаю условия политики конфиденциальности <br>и даю сагласие на обработку персональных данных</span>
+							</label>
+						</div>
+					</form><img src="{% static 'img/block7/1.png' %}" alt="" class="block7__img"/>
+				</div>
+			</section>
+
+
+{% endblock %}

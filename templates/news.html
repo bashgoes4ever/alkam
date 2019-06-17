@@ -1,0 +1,25 @@
+{% extends 'site.html' %}
+{% load static %}
+
+
+{% block title %}Новости{% endblock %}
+
+{% block body %}
+
+<section class="block13">
+				<div class="container">
+					<div class="block6__flex">
+                        {% for article in articles %}
+						<div class="block6__item">
+							<div style="background-image: url('/{{ article.image.url }}');" class="block6__img"></div>
+							<div class="title"> <span>{{ article.title }}</span></div>
+							<div class="text">{{ article.text|truncatewords:30|safe }}</div>
+                            <a href="{{ article.get_absolute_path }}" class="link vc"><span>Читать подробнее</span><img src="{% static 'img/icons/arrow-red.png' %}" alt=""/></a>
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+			</section>
+
+{% endblock %}
+

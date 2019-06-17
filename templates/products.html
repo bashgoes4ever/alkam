@@ -1,0 +1,153 @@
+{% extends 'site.html' %}
+{% load static %}
+
+{% block title %}Продукция{% endblock %}
+
+{% block body %}
+
+<section class="block17">
+				<div class="container">
+					<div class="block17__header">
+						<div class="section__title">Каталог продукции</div>
+                        <button class="button">состояние поставки</button>
+						<button class="button">получить ком.пред</button>
+					</div>
+					<div class="block17__table-outer">
+						<div class="block17__table-inner">
+							<div class="block17__filters-wrap">
+								<div class="block17__filters__labels">
+									<div class="block17__label">Материал</div>
+									<div class="block17__label">Тип продукции</div>
+									<div class="block17__label">Марка сплава</div>
+								</div>
+								<form class="block17__filters" action="{% url 'products_page' %}" method="GET">
+									<div class="select-wrapper">
+										<select name="material">
+											<option value="all">все</option>
+                                            {% for material in materials %}
+											<option value="{{ material.name }}"
+                                                {% if material.name in query %}
+                                                    selected
+                                                {% endif %}
+                                            >{{ material.name }}</option>
+                                            {% endfor %}
+										</select>
+									</div>
+									<div class="select-wrapper">
+										<select name="type">
+											<option value="all">все</option>
+                                            {% for type in types %}
+											<option value="{{ type.name }}"
+                                                {% if type.name in query %}
+                                                    selected
+                                                {% endif %}
+                                            >{{ type.name }}</option>
+											{% endfor %}
+										</select>
+									</div>
+									<div class="select-wrapper">
+										<select name="mark">
+											<option value="all">все</option>
+                                            {% for mark in marks %}
+											<option value="{{ mark.name }}"
+                                                {% if mark.name in query %}
+                                                    selected
+                                                {% endif %}
+                                            >{{ mark.name }}</option>
+											{% endfor %}
+										</select>
+									</div>
+									<button type="submit">поиск</button>
+								</form>
+							</div>
+							<div class="block17__table">
+								<div class="block17__th">
+									<div class="block17__cell b17-w1"><span>Вид продукции</span></div>
+									<div class="block17__cell b17-w2"><span>Состояния поставки</span></div>
+									<div class="block17__cell b17-w3"><span>Сплав</span></div>
+									<div class="block17__cell b17-w4"><span>Стандарт</span></div>
+									<div class="block17__cell b17-w5"><span>Толщина, мм</span></div>
+									<div class="block17__cell b17-w5"><span>Ширина, мм</span></div>
+									<div class="block17__cell b17-w6"><span>Длина, мм</span></div>
+									<div class="block17__cell b17-w7"><span>Плакировка</span></div>
+								</div>
+								<div class="block17__body">
+                                {% if page.object_list %}
+                                    {% for product in page.object_list %}
+									<div class="block17__tr">
+										<div class="block17__cell b17-w1"><span>{{ product.product_type.name }}</span></div>
+										<div class="block17__cell b17-w2"><span>{{ product.product_condition.name }}</span></div>
+										<div class="block17__cell b17-w3"><span>{{ product.product_mark.name }}</span></div>
+										<div class="block17__cell b17-w4"><span>{{ product.product_standart.name }}</span></div>
+										<div class="block17__cell b17-w5"><span>{{ product.thickness }}</span></div>
+										<div class="block17__cell b17-w5"><span>{{ product.width }}</span></div>
+										<div class="block17__cell b17-w6"><span>{{ product.length }}</span></div>
+										<div class="block17__cell b17-w7"><span>{{ product.pluck }}</span></div>
+									</div>
+                                    {% endfor %}
+                                {% else %}
+                                    <p>Продуктов, соответствующих вашим критериям поиска не найдено.</p>
+                                {% endif %}
+								</div>
+                                {% if is_paginated %}
+                                    <nav aria-label="Page navigation example">
+                                      <ul class="pagination">
+                                        <li class="page-item{% if not page_prev %} disabled{% endif %}">
+                                            <a class="page-link" href="{{ page_prev }}{{ query }}">Назад</a>
+                                        </li>
+
+                                          {% for n in page.paginator.page_range %}
+                                              {% if n > page.number|add:-3 and n < page.number|add:3 %}
+                                                <li class="page-item{% if page.number == n %} active{% endif %}">
+                                                    <a class="page-link" href="?page={{ n }}{{ query }}">{{ n }}</a>
+                                                </li>
+                                              {% endif %}
+                                          {% endfor %}
+
+                                        <li class="page-item{% if not page_next %} disabled{% endif %}">
+                                            <a class="page-link" href="{{ page_next }}{{ query }}">Далее</a>
+                                        </li>
+                                      </ul>
+                                    </nav>
+                                {% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="block15"><img src="{% static 'img/block15/bg.png' %}" alt="" class="block__bg"/>
+				<div class="container">
+					<div class="block15__flex">
+						<div class="section__title">Оптовые поставки <br>металлопроката</div>
+						<div class="text">ООО «Алкам плюс» занимается продажей металлопроката оптом и в розницу. Мы сотрудничаем с такими крупнейшими российскими заводами, как ОАО «КУМЗ», ОАО «Северсталь», ОАО «Трубная металлургическая компания», ОАО «Магнитогорский металлургический комбинат» и другими производителями. Поэтому вся продукция, которую реализует наша компания, имеет высокое качество, которое подтверждено необходимыми сертификатами. <br><br>Оптовой торговлей металлом мы занимаемся более 10 лет. За это время ООО «Алкам плюс» смогло заработать репутацию надежного партнера, который гарантирует исполнение взятых на себя обязательств. Об этом свидетельствует количество наших контрагентов и только положительные рекомендации заказчиков.</div>
+					</div>
+				</div>
+			</section>
+			<section class="block7">
+				<div class="container">
+					<form class="block7__form" action="{% url 'send_form' %}">
+						<div class="section__title">Вам нужен надёжный <br>поставщик ? </div>
+						<div class="descriptor">Заполните форму и получите персональное <br>коммерческое предложение</div>
+						<div class="fieldset">
+							<input type="text" name="mark" placeholder="Марка, размер*" required="required"/>
+							<input type="text" name="business" placeholder="Род деятельности"/>
+							<input type="text" name="phone" placeholder="Номер телефона*" required="required"/>
+							<input type="text" name="name" placeholder="Контактное лицо*" required="required"/>
+						</div>
+						<input type="text" name="company_name" placeholder="Наименование предприятия или ИП*" required="required"/>
+                        {% csrf_token %}
+						<textarea name="text" placeholder="Комментарии к заказу"></textarea>
+						<input type="hidden" name="type" value="Заявка на КП / Продукция"/>
+						<button class="button">Получить коммерческое предложение</button>
+						<div class="checkbox">
+							<input type="checkbox" id="c1" checked="checked"/>
+							<label for="c1">
+								<div class="box"><img src="{% static 'img/icons/check.png' %}" alt=""/></div><span>Я принимаю условия политики конфиденциальности <br>и даю сагласие на обработку персональных данных</span>
+							</label>
+						</div>
+					</form><img src="{% static 'img/block7/1.png' %}" alt="" class="block7__img"/>
+				</div>
+			</section>
+
+
+{% endblock %}

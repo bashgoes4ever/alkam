@@ -1,0 +1,228 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8"/>
+		<title>Alkam Plus | {% block title %}{% endblock %}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<link rel="icon" href="{% static 'favicon.png' %}" type="image/x-icon"/>
+		<link rel="shortcut icon" href="{% static 'favicon.png' %}" type="image/x-icon"/>
+{#		<link rel="stylesheet" href="{% static 'libs/bootstrap/bootstrap-grid-3.3.1.min.css' %}"/>#}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link href="{% static 'libs/Swiper-4.0.6/dist/css/swiper.css' %}" rel="stylesheet"/>
+		<link href="{% static 'css/fonts.css' %}" rel="stylesheet"/>
+		<link href="{% static 'css/lightbox.css' %}" rel="stylesheet"/>
+		<link href="{% static 'css/normalize.css' %}" rel="stylesheet"/>
+		<link href="{% static 'libs/jquery-nice-select-1.1.0/css/nice-select.css' %}" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+		<link href="{% static 'libs/owl-carousel/owl.carousel.css' %}" rel="stylesheet"/>
+		<link rel="stylesheet" href="{% static 'css/YouTubePopUp.css' %}"/>
+		<link href="{% static 'css/main.css' %}" rel="stylesheet"/>
+		<link rel="stylesheet" href="{% static 'css/animate.css' %}"/>
+		<link href="{% static 'css/media.css' %}" rel="stylesheet"/>
+	</head>
+	<body>
+		<div class="page-wrapper">
+			<header>
+				<div class="container">
+					<div class="header__flex">
+                        <a href="/"><img src="{% static 'img/logo.png' %}" alt="" class="logo"/></a>
+						<div class="header__descriptor">Завод по выпуску закаленных листов <br>из алюминиевых сплавов</div>
+						<div class="header__item">
+							<div class="header__item__img">
+                                <img src="{% static 'img/icons/1.png' %}" alt=""/>
+                            </div>
+                            <span>{{ contacts.region }}, <br>{{ contacts.city }}</span>
+						</div>
+						<div>
+							<div class="header__item">
+								<div class="header__item__img">
+                                    <img src="{% static 'img/icons/2.png' %}" alt=""/>
+                                </div>
+                                <span>{{ contacts.email }}</span>
+							</div>
+							<div class="header__item">
+								<div class="header__item__img">
+                                    <img src="{% static 'img/icons/3.png' %}" alt=""/>
+                                </div>
+                                <span>{{ contacts.phone1 }}</span>
+							</div>
+						</div>
+						<button class="button callback-button">Заказать звонок</button>
+					</div>
+				</div>
+			</header>
+			<nav class="main__nav-wrapper">
+				<div class="container">
+					<div class="show-m m-menu-btn vc">
+						<div class="box">
+							<div class="l l1"></div>
+							<div class="l l2"></div>
+							<div class="l l3"></div>
+						</div><span>Меню</span>
+					</div>
+					<div class="main__nav hide-m">
+                        <a href="/products/" class="main__nav__el">Продукция</a>
+                        <a href="/shop/" class="main__nav__el">Розничная торговля</a>
+                        <a href="/services/" class="main__nav__el">Услуги</a>
+                        <a href="/about/" class="main__nav__el">о компании</a>
+                        <a href="/calculator/" class="main__nav__el">калькулятор</a>
+                        <a href="/news/" class="main__nav__el">новости</a>
+                        <a href="#" class="main__nav__el main__nav__el-contacts">контакты</a>
+                    </div>
+				</div>
+			</nav>
+
+{% block body %}{% endblock %}
+
+            <section class="block8">
+				<div class="container">
+					<div class="block8__block">
+						<div class="title">Контакты</div>
+						<div class="block8__item">
+							<div class="block8__img">
+                                <img src="{% static 'img/icons/1.png' %}" alt=""/>
+                            </div>
+                            <span class="contact">{{ contacts.region }}, <br>{{ contacts.city }}, {{ contacts.street }}</span>
+						</div>
+						<div class="block8__item">
+							<div class="block8__img">
+                                <img src="{% static 'img/icons/3.png' %}" alt=""/>
+                            </div>
+                            <span class="description">Приемная:</span>
+                            <span class="contact">{{ contacts.phone1 }}</span>
+						</div>
+						<div class="block8__item">
+							<div class="block8__img">
+                                <img src="{% static 'img/icons/3.png' %}" alt=""/>
+                            </div>
+                            <span class="description">Отдел продаж:</span>
+                            <span class="contact">{{ contacts.phone2 }}</span>
+						</div>
+						<div class="block8__item">
+							<div class="block8__img">
+                                <img src="{% static 'img/icons/3.png' %}" alt=""/>
+                            </div>
+                            <span class="description">Цветные металлы:</span>
+                            <span class="contact">{{ contacts.phone3 }}</span>
+						</div>
+						<div class="block8__item">
+							<div class="block8__img">
+                                <img src="{% static 'img/icons/3.png' %}" alt=""/>
+                            </div>
+                            <span class="description">Бухгалтерия:</span>
+                            <span class="contact">{{ contacts.phone4 }}</span>
+						</div>
+						<div class="block8__item">
+							<div class="block8__img">
+                                <img src="{% static 'img/icons/2.png' %}" alt=""/>
+                            </div>
+                            <span class="contact">{{ contacts.email }}</span>
+						</div>
+					</div>
+				</div>
+				<div id="map">
+                    {{ contacts.map|safe }}
+                </div>
+			</section>
+			<nav class="footer__nav-wrapper">
+				<div class="container">
+					<div class="show-m m-menu-btn vc">
+						<div class="box">
+							<div class="l l1"></div>
+							<div class="l l2"></div>
+							<div class="l l3"></div>
+						</div><span>Меню</span>
+					</div>
+					<div class="main__nav mobile-menu">
+                        <a href="/products/" class="main__nav__el">Продукция</a>
+                        <a href="/shop/" class="main__nav__el">Розничная торговля</a>
+                        <a href="/services/" class="main__nav__el">Услуги</a>
+                        <a href="/about/" class="main__nav__el">о компании</a>
+                        <a href="/calculator/" class="main__nav__el">калькулятор</a>
+                        <a href="/news/" class="main__nav__el">новости</a>
+                        <a href="#" class="main__nav__el main__nav__el-contacts">контакты</a>
+                        <img src="{% static 'img/cross.png' %}" alt="" class="close-menu show-m"/>
+                    </div>
+				</div>
+			</nav>
+			<footer>
+				<div class="container">
+					<div class="header__flex">
+                        <a href="/">
+                            <img src="{% static 'img/logo.png' %}" alt="" class="logo"/>
+                        </a>
+						<div class="header__descriptor">Завод по выпуску закаленных листов <br>из алюминиевых сплавов</div>
+						<div class="header__item">
+							<div class="header__item__img">
+                                <img src="{% static 'img/icons/1.png' %}" alt=""/>
+                            </div>
+                            <span>{{ contacts.region }}, <br>{{ contacts.city }}</span>
+						</div>
+						<div>
+							<div class="header__item">
+								<div class="header__item__img">
+                                    <img src="{% static 'img/icons/2.png' %}" alt=""/>
+                                </div>
+                                <span>{{ contacts.email }}</span>
+							</div>
+							<div class="header__item">
+								<div class="header__item__img">
+                                    <img src="{% static 'img/icons/3.png' %}" alt=""/>
+                                </div>
+                                <span>{{ contacts.phone1 }}</span>
+							</div>
+						</div>
+						<button class="button callback-button">Заказать звонок</button>
+					</div>
+				</div>
+			</footer>
+			<div class="footer2">
+				<div class="container">
+                    <a href="" class="link1">Политика конфиденциальности</a>
+                    <a href="" class="link1">Пользовательское соглашение</a>
+					<div class="right">
+                        <span>Сайт разработан агенством </span>
+                        <a href="http://axis-marketing.ru" target="_blank">Axis</a>
+                    </div>
+				</div>
+			</div>
+		</div>
+		<div class="layer">
+            <img src="{% static 'img/cross.png' %}" alt="" class="layer__close"/>
+			<form class="popup callback-popup block7__form" action="{% url 'send_form' %}">
+				<div class="section__title">Оставьте контакты </div>
+				<div class="descriptor">Заполните форму и наш менеджер перезвонит вам в ближайшее время</div>
+				<input type="text" name="phone" placeholder="Ваш телефон*" required="required"/>
+				<input type="text" name="name" placeholder="Ваше имя"/>
+				<textarea name="text" placeholder="Ваш комментарий"></textarea>
+				<input type="hidden" name="type" value="Заявка на обратный звонок" />
+                {% csrf_token %}
+				<button class="button">Отправить</button>
+				<div class="checkbox">
+					<input type="checkbox" id="c2" checked="checked"/>
+					<label for="c2">
+						<div class="box">
+                            <img src="{% static 'img/icons/check.png' %}" alt=""/>
+                        </div>
+                        <span>Я принимаю условия политики конфиденциальности <br>и даю сагласие на обработку персональных данных</span>
+					</label>
+				</div>
+			</form>
+            <div class="block20__thank popup">
+                <div class="box"><img src="{% static 'img/icons/check3.png' %}" alt=""/></div>
+                <div class="title">Ваша заявка принята!</div>
+                <div class="text">В течение 15 минут с вами свяжется наш менеджер и ответит на все <br>интересующие вопросы</div>
+            </div>
+		</div>
+		<script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+		<script src="{% static 'libs/owl-carousel/owl.carousel.min.js' %}"></script>
+		<script src="{% static 'libs/jquery-nice-select-1.1.0/js/jquery.nice-select.min.js' %}"></script>
+		<script src="{% static 'libs/Swiper-4.0.6/dist/js/swiper.min.js' %}"></script>
+		<script src="{% static 'js/YouTubePopUp.jquery.js' %}"></script>
+		<script src="{% static 'js/lightbox.js' %}"></script>
+		<script src="{% static 'js/mask.js' %}"></script>
+		<script src="{% static 'js/main.js' %}"></script>
+	</body>
+</html>

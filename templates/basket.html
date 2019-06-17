@@ -1,0 +1,180 @@
+{% extends 'site.html' %}
+{% load static %}
+
+{% block title %}Корзина{% endblock %}
+
+
+{% block body %}
+
+
+<section class="block20">
+    <div class="container">
+        {% if product_len > 0 %}
+        <div class="section__title">Корзина</div>
+        <div class="block20__tabs">
+            <div data-block20-tab="0" class="block20__tab block20__tab-active">
+                <div class="num"><span>01</span></div>
+                <div class="text">Редактирование <br>заказа </div>
+            </div>
+            <div data-block20-tab="1" class="block20__tab">
+                <div class="num"><span>02</span></div>
+                <div class="text">Контакты <br>и доставка</div>
+            </div>
+            <div data-block20-tab="2" class="block20__tab">
+                <div class="num"><span>03</span></div>
+                <div class="text">Оформление <br>заказа</div>
+            </div>
+        </div>
+        <div class="block17__table-outer">
+            <div class="block17__table-inner">
+                <div class="block20__slider owl-carousel">
+                    <div class="block20__slide">
+                        <div class="block17__table">
+                            <div class="block17__th">
+                                <div class="block17__cell b17-w8"><span>Наименование</span></div>
+                                <div class="block17__cell b17-w9"><span>Стоимость*, <br>руб./ед.</span></div>
+                                <div class="block17__cell b17-w10"><span>Кол-во</span></div>
+                                <div class="block17__cell b17-w11"><span>Сумма. руб</span></div>
+                            </div>
+                            <div class="block17__body">
+                                {% for product in order.productinbasket_set.all %}
+                                <div class="block17__tr" id="{{ product.id }}">
+                                    <div class="block17__cell b17-w8 block18__cell">
+                                        <span>{{ product.product.name }}</span>
+                                    </div>
+                                    <div class="block17__cell b17-w9 block18__cell"><span>
+                                        <span class='price'>{{ product.price_per_item }} р</span>
+                                        <br>в т.ч. 20 % НДС</span>
+                                    </div>
+                                    <div class="block17__cell b17-w10 block18__cell">
+                                        <div class="block18__cell__select">
+                                            <input type="number" class="block20__quantity" name="quantity" value="{{ product.quantity }}" required>
+                                            <span class="block18__select__units">{{ product.units }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="block17__cell b17-w12 block18__cell block20__product__total"><span><span class='price'>{{ product.total_price }} р</span></span></div>
+                                    <div class="block17__cell b17-w13 block18__cell block20__delete">
+                                        <form action="{% url 'remove_from_basket' %}" method="post">
+                                            <input type="hidden" name="product_id" value="{{ product.id }}">
+                                            <button class="block20__delete-btn"><img src="{% static 'img/icons/delete.png' %}" alt=""/></button>
+                                        </form>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="postscriptor">* Указанные цены являются оптовыми. Они носят исключительно информационный характер и не является публичной офертой, определяемой положениями ст. 437 (ч. 2) ГК РФ. Уточнить наличии и стоимость продукции можно у наших менеджеров по контактным телефонам или с помощью формы обратной связи.</div>
+                        <div class="block20__checkout clearfix">
+                            <div class="block20__checkout__info">
+                                <div class="text">Кол-во товаров: <span>{{ product_len }}</span></div>
+                            </div>
+                            <div class="block20__checkout__info">
+                                <div class="text">На сумму: <span>{{ order.total_price }} руб.</span></div>
+                            </div>
+                            <button class="block20__next">Перейти к оформлению</button>
+                        </div>
+                    </div>
+                    <div class="block20__slide">
+                        <form class="block20__first-form block20__step2" action="{% url 'checkout' %}">
+                            <div class="fieldset">
+                                <input type="text" name="name" placeholder="ФИО" required="required"/>
+                                <input type="email" name="email" placeholder="Email" required="required"/>
+                                <input type="text" name="phone" placeholder="Номер телефона" required="required"/>
+                                <input type="text" name="company_name" placeholder="Наименование организации"/>
+                                <input type="hidden" name="order_delivery" value="">
+                                {% csrf_token %}
+                            </div>
+                            <textarea name="text" placeholder="Ваши комментарии к заказу"></textarea>
+                            <div class="block20__delivery-flex">
+                                <div class="block20__delivery-item">
+                                    <input type="radio" name="delivery" value="Самовывоз" id="r1" checked="checked"/>
+                                    <label for="r1">
+                                        <div class="block20__radio__title vc">
+                                            <div class="box"><img src="{% static 'img/icons/check2.png' %}" alt=""/></div>
+                                            <div class="title">Самовывоз</div>
+                                        </div>
+                                        <div class="block20__contacts">
+                                            <div class="block8__item">
+                                                <div class="block8__img"><img src="{% static 'img/icons/1.png' %}" alt=""/></div><span class="contact">Свердловская область, <br>Каменск-Уральский,ул. Заводская, 9/8 </span>
+                                            </div>
+                                            <div class="block8__item">
+                                                <div class="block8__img"><img src="{% static 'img/icons/4.png' %}" alt=""/></div><span class="contact">55.7549'73" с. ш. 37.7720'83" в. д.</span>
+                                            </div>
+                                            <div class="block8__item">
+                                                <div class="block8__img"><img src="{% static 'img/icons/5.png' %}" alt=""/></div><span class="contact">Пн-Чт с 9.00 до 17.00, Пт с 9.00 до 15.00, <br>Сб и Вс - выходной</span>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="block20__delivery-item">
+                                    <input type="radio" name="delivery" value="Доставка" id="r2"/>
+                                    <label for="r2">
+                                        <div class="block20__radio__title vc">
+                                            <div class="box"><img src="{% static 'img/icons/check2.png' %}" alt=""/></div>
+                                            <div class="title">Доставка</div>
+                                        </div>
+                                        <div class="block20__delivery__inputs">
+                                            <input type="text" name="delivery_date" placeholder="Дата доставки"/>
+                                            <input type="text" name="delivery_time" placeholder="Время доставки"/>
+                                            <input type="text" name="delivery_address" placeholder="Адрес"/>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="block20__first-form__buttons">
+                                <button class="block20__prev button">назад</button>
+                                <button class="block20__next button" data-step="2">Подтверждение заказа</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="block20__slide">
+                        <div class="block20__first-form block20__step3">
+                            <div class="fieldset">
+                                <input type="text" name="name" placeholder="ФИО" disabled="disabled"/>
+                                <input type="email" name="email" placeholder="Email" disabled="disabled"/>
+                                <input type="text" name="phone" placeholder="Номер телефона" disabled="disabled"/>
+                                <input type="text" name="company_name" placeholder="Наименование организации" disabled="disabled"/>
+                            </div>
+                            <textarea name="text" placeholder="Ваши комментарии к заказу" disabled="disabled"></textarea>
+                            <p>Вы выбрали самовывоз. Адрес: Каменск-Уральский, ул. Заводская, 9/8</p>
+                        </div>
+                        <div class="block17__table">
+                            <div class="block17__th">
+                                <div class="block17__cell b17-w8"><span>Наименование</span></div>
+                                <div class="block17__cell b17-w9"><span>Стоимость*, <br>руб./ед.</span></div>
+                                <div class="block17__cell b17-w10"><span>Кол-во</span></div>
+                                <div class="block17__cell b17-w11"><span>Сумма. руб</span></div>
+                            </div>
+                            <div class="block17__body block20__step3__body">
+                            </div>
+                        </div>
+                        <div class="postscriptor">* Указанные цены являются оптовыми. Они носят исключительно информационный характер и не является публичной офертой, определяемой положениями ст. 437 (ч. 2) ГК РФ. Уточнить наличии и стоимость продукции можно у наших менеджеров по контактным телефонам или с помощью формы обратной связи.</div>
+                        <div class="block20__checkout clearfix block20__step3__checkout">
+                            <div class="block20__checkout__info">
+                                <div class="text">Кол-во товаров: <span>4</span></div>
+                            </div>
+                            <div class="block20__checkout__info">
+                                <div class="text">На сумму: <span>228 000 руб.</span></div>
+                            </div>
+                            <button class="order-final">Оформить заказ</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="block20__thank">
+            <div class="box"><img src="{% static 'img/icons/check3.png' %}" alt=""/></div>
+            <div class="title">Ваш заказ принят и находится в обработке</div>
+            <div class="text">В течение 15 минут с вами свяжется наш менеджер и ответит на все <br>интересующие вопросы</div>
+        </div>
+        {% else %}
+        <p>У вас в корзине нет ни одного товара.</p>
+        {% endif %}
+    </div>
+</section>
+
+
+
+
+
+{% endblock %}

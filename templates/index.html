@@ -1,0 +1,185 @@
+{% extends 'site.html' %}
+{% load static %}
+
+
+{% block title %}Главная{% endblock %}
+
+{% block body %}
+            <section class="block1"><img src="{% static 'img/block1/bg.png' %}" alt="" class="block__bg block1__bg"/>
+				<div class="container">
+					<main>
+						<div class="main__left">
+							<h1>Производство <br>и поставка <br>алюминиевых <br>полуфабрикатов</h1>
+							<button class="button">Получить ком. пред.</button>
+						</div>
+						<div class="main__right">
+							<div class="main__item">
+								<div class="main__item__img"><img src="{% static 'img/block1/1.png' %}" alt=""/></div>
+								<div class="text">В любых объёмах <br>с доставкой по <br>всей России и СНГ</div>
+							</div>
+							<div class="main__item">
+								<div class="main__item__img"><img src="{% static 'img/block1/2.png' %}" alt=""/></div>
+								<div class="text">Скидки и отсрочки <br>платежей <br>постоянным клиентам</div>
+							</div>
+							<div class="main__item">
+								<div class="main__item__img"><img src="{% static 'img/block1/3.png' %}" alt=""/></div>
+								<div class="text">Склад работает <br>24/7</div>
+							</div>
+						</div>
+					</main>
+				</div>
+			</section>
+			<section class="block2">
+				<div class="container">
+					<div class="section__title"><span>ООО "АЛКАМ плюс"</span> - это современное предприятие <br>по производству алюминиевых полуфабрикатов <br>высокого качества</div>
+					<div class="block2__flex">
+						<div class="block2__left">
+							<div class="block2__item vc">
+								<div class="block2__item__img block2__item__img1"><img src="{% static 'img/block2/1.png' %}" alt=""/></div>
+								<div class="text">Работаем в металлургии <br>с 2002 года</div>
+							</div>
+							<div class="block2__item vc">
+								<div class="block2__item__img block2__item__img2"><img src="{% static 'img/block2/2.png' %}" alt=""/></div>
+								<div class="text">Собственное производство <br>площадью 1500 м2</div>
+							</div>
+							<div class="block2__item vc">
+								<div class="block2__item__img block2__item__img3"><img src="{% static 'img/block2/3.png' %}" alt=""/></div>
+								<div class="text">Реализуем более 500 тонн в год <br>алюминиевых полуфабрикатов</div>
+							</div>
+						</div>
+						<div class="block2__right">
+							<div class="swiper-container block2__main-slider">
+								<div class="swiper-wrapper">
+                                    {% for slider_image in slider_images %}
+									<div style="background-image: url('{{ slider_image.image.url }}');" class="swiper-slide"></div>
+                                    {% endfor %}
+								</div>
+							</div>
+							<div class="swiper-container block2__thumbs">
+								<div class="swiper-wrapper">
+                                    {% for slider_image in slider_images %}
+									<div style="background-image: url('{{ slider_image.image.url }}');" class="swiper-slide"></div>
+                                    {% endfor %}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="block3"><img src="{% static 'img/block3/bg.png' %}" alt="" class="block__bg"/>
+				<div class="container">
+					<div class="section__title"><span>Почему наши клиенты выбирают нас,</span> даже сравнив <br>все предложения на рынке?</div>
+					<div class="block3__flex">
+						<div class="block3__item">
+							<div class="block3__item__img block3__item__img1"><img src="{% static 'img/block3/1.png' %}" alt=""/></div>
+							<div class="title">Соблюдиение сроков <br>поставок</div>
+							<div class="text">Мы четко соблюдаем оговоренные <br>сроки и выполняем поставки точно <br>в назначенное время</div>
+						</div>
+						<div class="block3__item">
+							<div class="block3__item__img block3__item__img2"><img src="{% static 'img/block3/2.png' %}" alt=""/></div>
+							<div class="title">Отсрочка платежей <br>постоянным клиентам</div>
+							<div class="text">Предоставляем постоянным клиентам <br>отсрочки платежей и персональные <br>условия сотрудничества</div>
+						</div>
+						<div class="block3__item">
+							<div class="block3__item__img"><img src="{% static 'img/block3/3.png' %}" alt=""/></div>
+							<div class="title">Отгрузки в любых <br>объемах</div>
+							<div class="text">Осуществляем отгрузки в любых <br>объемах в зависимости <br>от потребностей заказчика</div>
+						</div>
+						<div class="block3__item">
+							<div class="block3__item__img block3__item__img4"><img src="{% static 'img/block3/4.png' %}" alt=""/></div>
+							<div class="title">Изготовление продукции <br>нестандартных размеров</div>
+							<div class="text">По вашему желанию мы можем <br>изготовить нестандартную продукцию <br>по длине, ширине или толщине</div>
+						</div>
+						<div class="block3__item">
+							<div class="block3__item__img"><img src="{% static 'img/block3/5.png' %}" alt=""/></div>
+							<div class="title">Лучшая стоимость <br>на рынке</div>
+							<div class="text">Собственное производство, контракты <br>с крупными заводами производителями <br>позволяют предоставлять конкурентные цены</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="block4">
+				<div class="container">
+					<div class="block4__flex">
+						<div class="block4__left">
+							<div class="section__title">Политика производства <br>направлена на <span>качество</span> <br><span>продукции</span></div>
+							<div class="block4__tabs">
+                                {% for tab in tabs %}
+								<div class="block4__tab{% if forloop.counter == 1 %} block4__tab-active{% endif %}"><span>{{ tab.tab_text }}</span></div>
+                                {% endfor %}
+							</div>
+						</div>
+						<div class="block4__right">
+                            {% for tab in tabs %}
+							<div class="block4__item{% if forloop.counter == 1 %} block4__item-active{% endif %}">
+								<div style="background-image: url('{{ tab.image.url }}');" class="block4__img"></div>
+								<div class="title">{{ tab.title }}</div>
+								<div class="text">{{ tab.text|safe }}</div>
+							</div>
+                            {% endfor %}
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="block5">
+				<div class="container">
+					<div class="block5__title-flex">
+						<div class="section__title">Вся отгружаемая продукция<br> сопровождается <br><span>сертификатами качества</span></div>
+						<div class="block5__descriptor">Cоответствует государственным <br>стандартам Гост, ТУ и ОСТ</div>
+					</div>
+					<div class="block5__flex">
+                        {% for sertificate in sertificates %}
+                        <a href="{{ sertificate.image.url }}" data-lightbox="sertificates" class="block5__item">
+							<div style="background-image: url('{{ sertificate.image.url }}');" class="block5__img"></div>
+							<div class="block5__zoom"><img src="{% static 'img/icons/zoom.png' %}" alt=""/></div>
+                        </a>
+                        {% endfor %}
+				</div>
+			</section>
+			<section class="block6"><img src="{% static 'img/block6/bg.png' %}" alt="" class="block__bg"/>
+				<div class="container">
+					<div class="section__title">Новости компании</div>
+					<div class="block6__flex">
+                        {% for article in news %}
+						<div class="block6__item">
+							<div style="background-image: url('/{{ article.image.url }}');" class="block6__img"></div>
+							<div class="title"> <span>{{ article.title }}</span></div>
+							<div class="text">{{ article.text|truncatewords:30|safe }}</div>
+                            <a href="{{ article.get_absolute_path }}" class="link vc">
+                                <span>Читать подробнее</span>
+                                <img src="{% static 'img/icons/arrow.png' %}" alt=""/>
+                            </a>
+						</div>
+                        {% endfor %}
+					</div>
+                    <a href="/news">
+						<button class="button">Еще новости</button>
+                    </a>
+				</div>
+			</section>
+			<section class="block7">
+				<div class="container">
+					<form class="block7__form" action="{% url 'send_form' %}">
+						<div class="section__title">Вам нужен надёжный <br>поставщик ? </div>
+						<div class="descriptor">Заполните форму и получите персональное <br>коммерческое предложение</div>
+						<div class="fieldset">
+							<input type="text" name="mark" placeholder="Марка, размер*" required="required"/>
+							<input type="text" name="business" placeholder="Род деятельности"/>
+							<input type="text" name="phone" placeholder="Номер телефона*" required="required"/>
+							<input type="text" name="name" placeholder="Контактное лицо*" required="required"/>
+						</div>
+						<input type="text" name="company_name" placeholder="Наименование предприятия или ИП*" required="required"/>
+                        {% csrf_token %}
+						<textarea name="text" placeholder="Комментарии к заказу"></textarea>
+						<input type="hidden" name="type" value="Заявка на КП / Главная"/>
+						<button class="button">Получить коммерческое предложение</button>
+						<div class="checkbox">
+							<input type="checkbox" id="c1" checked="checked"/>
+							<label for="c1">
+								<div class="box"><img src="{% static 'img/icons/check.png' %}" alt=""/></div><span>Я принимаю условия политики конфиденциальности <br>и даю сагласие на обработку персональных данных</span>
+							</label>
+						</div>
+					</form><img src="{% static 'img/block7/1.png' %}" alt="" class="block7__img"/>
+				</div>
+			</section>
+{% endblock %}
