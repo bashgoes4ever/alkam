@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="919a8687-6a43-4fa4-9035-adb0d5a126e3" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/img/equipments/SKLAD1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/equipments/SKLAD1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/sales.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sales.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/shop.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/shop.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/site.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/site.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -216,7 +209,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1560515349763</updated>
-      <workItem from="1643825010135" duration="704000" />
+      <workItem from="1643825010135" duration="1029000" />
     </task>
     <servers />
   </component>
