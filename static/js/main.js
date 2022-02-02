@@ -2,7 +2,7 @@ $(document).ready(function() {
 
 	//block1
 
-	$('.main__left button, .block17__header button').click(function() {
+	$('.main__left button, .block17__header .button1').click(function() {
 		var destination = $('.block7').offset().top;
 		$('html, body').animate({ scrollTop: destination}, 500);
 	})
@@ -281,6 +281,7 @@ $(document).ready(function() {
 				$('.block20__thank').show()
 				var destination = $('.block20').offset().top;
 				$('html, body').animate({ scrollTop: destination}, 500);
+				yaCounter54182878.reachGoal('g4')
             }
     	})
     })
@@ -294,6 +295,12 @@ $(document).ready(function() {
 		document.body.style.overflow = 'hidden'
 		$('.layer').fadeIn(300)
 		$('.callback-popup').fadeIn(500)
+	})
+
+    $('.block17__header .button2').click(function() {
+		document.body.style.overflow = 'hidden'
+		$('.layer').fadeIn(300)
+		$('.condition-popup').fadeIn(500)
 	})
 
 	$('.layer').click(function(e){
@@ -330,6 +337,16 @@ $(document).ready(function() {
 				setTimeout(function () {
 					$('.block20__thank.popup').fadeIn(300)
                 }, 100)
+
+				if (a.find('input[name=type]').val() == 'Заявка на обратный звонок') {
+                	yaCounter54182878.reachGoal('g1')
+                } else if (a.find('input[name=type]').val() == 'Заявка на КП / О компании') {
+                	yaCounter54182878.reachGoal('g2')
+                } else if (a.find('input[name=type]').val() == 'Заявка на КП / Продукция') {
+                	yaCounter54182878.reachGoal('g3')
+                } else if (a.find('input[name=type]').val() == 'Заявка на КП / Услуги') {
+                	yaCounter54182878.reachGoal('g5')
+                }
             }
     	})
     })

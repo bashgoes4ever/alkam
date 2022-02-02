@@ -14,12 +14,12 @@ def get_products_paginated(request):
     filters = {}
     if request.POST.get('materials') is not 'all':
         try:
-            filters['product_material_id'] = ProductShopMaterial.objects.get(name__iexact=request.POST.get('materials')).id
+            filters['product_material_id'] = ProductShopMaterial.objects.get(name__exact=request.POST.get('materials')).id
         except:
             pass
     if request.POST.get('marks') is not 'all':
         try:
-            filters['product_mark_id'] = ProductShopMark.objects.get(name__iexact=request.POST.get('marks')).id
+            filters['product_mark_id'] = ProductShopMark.objects.get(name__exact=request.POST.get('marks')).id
         except:
             pass
     if request.POST.get('thickness') is not 'all':

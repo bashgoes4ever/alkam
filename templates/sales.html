@@ -1,0 +1,21 @@
+{% extends 'site.html' %}
+
+{% block title %}Акции{% endblock %}
+
+{% block body %}
+
+<section class="block13">
+    <div class="container">
+        <div class="section__title">Акции</div>
+        <div class="sales__block">
+            {% for sale in sales %}
+            <div class="sales__item">
+                <div class="title">{{ sale.title }}</div>
+                <div class="text">{{ sale.text|safe }}</div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

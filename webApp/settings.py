@@ -45,7 +45,9 @@ INSTALLED_APPS = [
     'servicesPage',
     'products',
     'shop',
-    'basket'
+    'sales',
+    'basket',
+    'calculator'
 ]
 
 MIDDLEWARE = [
@@ -55,7 +57,6 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 ROOT_URLCONF = 'webApp.urls'
@@ -130,9 +131,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = (
-  os.path.join(BASE_DIR, "static",),
-)
+STATIC_ROOT = "/webapps/alkam.site/site/static/"
+
+# STATICFILES_DIRS = (
+#   os.path.join(BASE_DIR, "static",),
+# )
 
 #TINYMCE_JS_URL = '/static/tiny_mce/tiny_mce_src.js'
 TINYMCE_DEFAULT_CONFIG = {
@@ -147,3 +150,17 @@ EMAIL_HOST = 'smtp.timeweb.ru'
 EMAIL_HOST_USER = 'mail@axis-marketing.ru'
 EMAIL_HOST_PASSWORD = 'qwer1234'
 
+DEBUG = False
+ALLOWED_HOSTS = ['*']
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'alkamdb',
+        'USER': 'alkam',
+        'PASSWORD': 'alkamdbadmin',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}

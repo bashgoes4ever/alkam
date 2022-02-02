@@ -20,6 +20,23 @@
 		<link href="{% static 'css/main.css' %}" rel="stylesheet"/>
 		<link rel="stylesheet" href="{% static 'css/animate.css' %}"/>
 		<link href="{% static 'css/media.css' %}" rel="stylesheet"/>
+
+		<!-- Yandex.Metrika counter -->
+		<script type="text/javascript" >
+		   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+		   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+		   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+		   ym(54182878, "init", {
+		        clickmap:true,
+		        trackLinks:true,
+		        accurateTrackBounce:true,
+		        webvisor:true
+		   });
+		</script>
+		<noscript><div><img src="https://mc.yandex.ru/watch/54182878" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+		<!-- /Yandex.Metrika counter -->
+
 	</head>
 	<body>
 		<div class="page-wrapper">
@@ -27,7 +44,7 @@
 				<div class="container">
 					<div class="header__flex">
                         <a href="/"><img src="{% static 'img/logo.png' %}" alt="" class="logo"/></a>
-						<div class="header__descriptor">Завод по выпуску закаленных листов <br>из алюминиевых сплавов</div>
+						<div class="header__descriptor">Производство алюминиевых <br>полуфабрикатов</div>
 						<div class="header__item">
 							<div class="header__item__img">
                                 <img src="{% static 'img/icons/1.png' %}" alt=""/>
@@ -45,7 +62,7 @@
 								<div class="header__item__img">
                                     <img src="{% static 'img/icons/3.png' %}" alt=""/>
                                 </div>
-                                <span>{{ contacts.phone1 }}</span>
+                                <span>+7(3439) 399-440</span>
 							</div>
 						</div>
 						<button class="button callback-button">Заказать звонок</button>
@@ -66,7 +83,8 @@
                         <a href="/shop/" class="main__nav__el">Розничная торговля</a>
                         <a href="/services/" class="main__nav__el">Услуги</a>
                         <a href="/about/" class="main__nav__el">о компании</a>
-                        <a href="/calculator/" class="main__nav__el">калькулятор</a>
+                        <a href="/offers/" class="main__nav__el">Сотрудничество</a>
+                        <a href="{% url 'sales_page' %}" class="main__nav__el">акции</a>
                         <a href="/news/" class="main__nav__el">новости</a>
                         <a href="#" class="main__nav__el main__nav__el-contacts">контакты</a>
                     </div>
@@ -83,7 +101,7 @@
 							<div class="block8__img">
                                 <img src="{% static 'img/icons/1.png' %}" alt=""/>
                             </div>
-                            <span class="contact">{{ contacts.region }}, <br>{{ contacts.city }}, {{ contacts.street }}</span>
+                            <span class="contact">{{ contacts.region }}, <br>{{ contacts.city }}, {{ contacts.street }}<br>56.376044, 61.961292</span>
 						</div>
 						<div class="block8__item">
 							<div class="block8__img">
@@ -119,6 +137,10 @@
                             </div>
                             <span class="contact">{{ contacts.email }}</span>
 						</div>
+						<div class="block8__ok">
+							<img src="{% static 'img/ok.png' %}" alt="">
+							<a href="https://ok.ru/group/56000709525526" target="_blank">Мы в Одноклассниках</a>
+						</div>
 					</div>
 				</div>
 				<div id="map">
@@ -139,7 +161,8 @@
                         <a href="/shop/" class="main__nav__el">Розничная торговля</a>
                         <a href="/services/" class="main__nav__el">Услуги</a>
                         <a href="/about/" class="main__nav__el">о компании</a>
-                        <a href="/calculator/" class="main__nav__el">калькулятор</a>
+                        <a href="/offers/" class="main__nav__el">Сотрудничество</a>
+                        <a href="{% url 'sales_page' %}" class="main__nav__el">акции</a>
                         <a href="/news/" class="main__nav__el">новости</a>
                         <a href="#" class="main__nav__el main__nav__el-contacts">контакты</a>
                         <img src="{% static 'img/cross.png' %}" alt="" class="close-menu show-m"/>
@@ -152,7 +175,7 @@
                         <a href="/">
                             <img src="{% static 'img/logo.png' %}" alt="" class="logo"/>
                         </a>
-						<div class="header__descriptor">Завод по выпуску закаленных листов <br>из алюминиевых сплавов</div>
+						<div class="header__descriptor">Производство алюминиевых <br>полуфабрикатов</div>
 						<div class="header__item">
 							<div class="header__item__img">
                                 <img src="{% static 'img/icons/1.png' %}" alt=""/>
@@ -170,7 +193,7 @@
 								<div class="header__item__img">
                                     <img src="{% static 'img/icons/3.png' %}" alt=""/>
                                 </div>
-                                <span>{{ contacts.phone1 }}</span>
+                                <span>+7(3439) 399-440</span>
 							</div>
 						</div>
 						<button class="button callback-button">Заказать звонок</button>
@@ -200,7 +223,7 @@
                 {% csrf_token %}
 				<button class="button">Отправить</button>
 				<div class="checkbox">
-					<input type="checkbox" id="c2" checked="checked"/>
+					<input type="checkbox" id="c2" name="polit" value="1" required />
 					<label for="c2">
 						<div class="box">
                             <img src="{% static 'img/icons/check.png' %}" alt=""/>
@@ -208,7 +231,9 @@
                         <span>Я принимаю условия политики конфиденциальности <br>и даю сагласие на обработку персональных данных</span>
 					</label>
 				</div>
+
 			</form>
+			{% block popup %}{% endblock %}
             <div class="block20__thank popup">
                 <div class="box"><img src="{% static 'img/icons/check3.png' %}" alt=""/></div>
                 <div class="title">Ваша заявка принята!</div>
@@ -216,6 +241,14 @@
             </div>
 		</div>
 		<script src="{% static 'js/jquery.min.js' %}"></script>
+		<script src="https://www.google.com/recaptcha/api.js?render=6LcLBq8UAAAAAPMvrAN5mAHMUf0D8qtmCmAEQ757"></script>
+		<script>
+  grecaptcha.ready(function() {
+      grecaptcha.execute('6LcLBq8UAAAAAPMvrAN5mAHMUf0D8qtmCmAEQ757', {action: 'homepage'}).then(function(token) {
+         ...
+      });
+  });
+  </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 		<script src="{% static 'libs/owl-carousel/owl.carousel.min.js' %}"></script>
 		<script src="{% static 'libs/jquery-nice-select-1.1.0/js/jquery.nice-select.min.js' %}"></script>

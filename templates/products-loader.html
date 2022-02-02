@@ -1,0 +1,25 @@
+{% extends 'site.html' %}
+
+{% block title %}Загрузка продуктов{% endblock %}
+
+
+{% block body %}
+
+{% if request.user.is_superuser %}
+
+<section class="load_products-form" style="padding: 50px 0;">
+    <div class="container">
+        <div class="section__title">Загрузка продуктов происходит из файла .txt где поля разделены табуляцией</div>
+
+        <form action="{% url 'load_products' %}" method="post" style="margin-top: 50px;" enctype="multipart/form-data">
+            <input type="file" name="file">
+            {% csrf_token %}
+            <button class="button">Загрузить</button>
+        </form>
+    </div>
+</section>
+
+
+{% endif %}
+
+{% endblock %}

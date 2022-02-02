@@ -18,4 +18,5 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.products_page, name='products_page'),
+    url(r'load_products/', views.load_products, name='load_products'),
 ]

@@ -14,6 +14,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='sertificates',
             name='date',
-            field=models.DateTimeField(default=123456, editable=False),
+            field=models.DateTimeField(default=django.utils.timezone.now, editable=False),
         ),
     ]

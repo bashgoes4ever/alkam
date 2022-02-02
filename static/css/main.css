@@ -837,8 +837,7 @@ footer {
   overflow: hidden; }
 
 .block9__left {
-  width: 530px;
-  float: left; }
+  width: 100%; }
   .block9__left .title {
     text-transform: uppercase;
     color: #fff;
@@ -1770,9 +1769,54 @@ footer {
     background-color: #ffffff;
     padding: 30px;
   }
+  .white {
+    color: #fff;
+  }
+  .nice-select.open .list {
+    max-height: 350px;
+    overflow-y: scroll;
+  }
+  .block17__standart-cell span {
+    font-size: 14px;
+  }
 
 .owl-item {
   transition: all 0s; }
 
 .show-m {
   display: none; }
+
+.condition-popup {
+  width: 620px;
+  background-color: #fff;
+  position: absolute;
+  top: 50px;
+  margin-bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.condition-popup .b17-w8 span {
+  text-transform: none;
+  font-size: 14px;
+  line-height: 20px;
+}
+.sales__block {
+  margin-top: 50px;
+}
+.sales__item {
+  border: 2px solid #777777;
+  margin-bottom: 40px;
+  padding: 50px;
+}
+.sales__item .title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.block8__ok {
+  margin-top: 10px;
+  color: #ff8c09;
+}
+.block8__ok img {
+  height: 20px;
+}

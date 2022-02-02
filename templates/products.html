@@ -9,8 +9,8 @@
 				<div class="container">
 					<div class="block17__header">
 						<div class="section__title">Каталог продукции</div>
-                        <button class="button">состояние поставки</button>
-						<button class="button">получить ком.пред</button>
+                        <button class="button button2">состояние поставки</button>
+						<button class="button button1">получить ком.пред</button>
 					</div>
 					<div class="block17__table-outer">
 						<div class="block17__table-inner">
@@ -78,11 +78,11 @@
 										<div class="block17__cell b17-w1"><span>{{ product.product_type.name }}</span></div>
 										<div class="block17__cell b17-w2"><span>{{ product.product_condition.name }}</span></div>
 										<div class="block17__cell b17-w3"><span>{{ product.product_mark.name }}</span></div>
-										<div class="block17__cell b17-w4"><span>{{ product.product_standart.name }}</span></div>
+										<div class="block17__cell b17-w4 block17__standart-cell"><span>{{ product.product_standart.name }}</span></div>
 										<div class="block17__cell b17-w5"><span>{{ product.thickness }}</span></div>
 										<div class="block17__cell b17-w5"><span>{{ product.width }}</span></div>
 										<div class="block17__cell b17-w6"><span>{{ product.length }}</span></div>
-										<div class="block17__cell b17-w7"><span>{{ product.pluck }}</span></div>
+										<div class="block17__cell b17-w7"><span>{% if product.pluck %}{{ product.pluck }}{% endif %}</span></div>
 									</div>
                                     {% endfor %}
                                 {% else %}
@@ -119,7 +119,7 @@
 				<div class="container">
 					<div class="block15__flex">
 						<div class="section__title">Оптовые поставки <br>металлопроката</div>
-						<div class="text">ООО «Алкам плюс» занимается продажей металлопроката оптом и в розницу. Мы сотрудничаем с такими крупнейшими российскими заводами, как ОАО «КУМЗ», ОАО «Северсталь», ОАО «Трубная металлургическая компания», ОАО «Магнитогорский металлургический комбинат» и другими производителями. Поэтому вся продукция, которую реализует наша компания, имеет высокое качество, которое подтверждено необходимыми сертификатами. <br><br>Оптовой торговлей металлом мы занимаемся более 10 лет. За это время ООО «Алкам плюс» смогло заработать репутацию надежного партнера, который гарантирует исполнение взятых на себя обязательств. Об этом свидетельствует количество наших контрагентов и только положительные рекомендации заказчиков.</div>
+						<div class="text">Компания АЛКАМ плюс, кроме продукции собственного изготовления, предлагает сотрудничество в области поставок алюминиевых (медных/бронзовых/латунных) полуфабрикатов производства крупнейших российских металлургических предприятий.<br><br>Наши преимущества:<br><br>- ЧЕСТНАЯ ЦЕНА<br>- ПРИЕМЛЕМЫЕ УСЛОВИЯ ОПЛАТЫ<br>- ПОСТАВКИ ИЗ НАЛИЧИЯ<br>- БЫСТРОЕ ИЗГОТОВЛЕНИЕ ПОД ЗАКАЗ на заводах-партнерах</div>
 					</div>
 				</div>
 			</section>
@@ -130,7 +130,7 @@
 						<div class="descriptor">Заполните форму и получите персональное <br>коммерческое предложение</div>
 						<div class="fieldset">
 							<input type="text" name="mark" placeholder="Марка, размер*" required="required"/>
-							<input type="text" name="business" placeholder="Род деятельности"/>
+							<input type="text" name="business" placeholder="Вид деятельности"/>
 							<input type="text" name="phone" placeholder="Номер телефона*" required="required"/>
 							<input type="text" name="name" placeholder="Контактное лицо*" required="required"/>
 						</div>
@@ -140,7 +140,7 @@
 						<input type="hidden" name="type" value="Заявка на КП / Продукция"/>
 						<button class="button">Получить коммерческое предложение</button>
 						<div class="checkbox">
-							<input type="checkbox" id="c1" checked="checked"/>
+							<input type="checkbox" id="c1" value="1" name="polit" required/>
 							<label for="c1">
 								<div class="box"><img src="{% static 'img/icons/check.png' %}" alt=""/></div><span>Я принимаю условия политики конфиденциальности <br>и даю сагласие на обработку персональных данных</span>
 							</label>
@@ -148,6 +148,30 @@
 					</form><img src="{% static 'img/block7/1.png' %}" alt="" class="block7__img"/>
 				</div>
 			</section>
+
+
+{% endblock %}
+
+
+{% block popup %}
+
+
+<div class="popup condition-popup">
+	<div class="block17__table">
+		<div class="block17__th">
+			<div class="block17__cell b17-w2"><span>Состояния поставки</span></div>
+			<div class="block17__cell b17-w8"><span>Описание</span></div>
+		</div>
+		<div class="block17__body">
+        {% for c in conditions %}
+        	<div class="block17__tr">
+        		<div class="block17__cell b17-w2"><span>{{ c.name }}</span></div>
+        		<div class="block17__cell b17-w8"><span>{{ c.description }}</span></div>
+        	</div>
+        {% endfor %}
+        </div>
+	</div>
+</div>
 
 
 {% endblock %}

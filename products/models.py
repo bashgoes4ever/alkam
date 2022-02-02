@@ -61,7 +61,7 @@ class Product(models.Model):
     thickness = models.CharField(max_length=50, verbose_name=u"Толщина, мм")
     width = models.CharField(max_length=50, verbose_name=u"Ширина, мм")
     length = models.CharField(max_length=50, verbose_name=u"Длина, мм")
-    pluck = models.CharField(max_length=50, verbose_name=u"Плакировка")
+    pluck = models.CharField(max_length=50, verbose_name=u"Плакировка", null=True, blank=True)
     product_type = models.ForeignKey(ProductType, blank=True, null=True, default=None,
                                      on_delete=models.CASCADE, verbose_name=u"Вид продукции")
     product_condition = models.ForeignKey(ProductCondition, blank=True, null=True, default=None,

@@ -1,7 +1,9 @@
-from django.shortcuts import render
+# -*- coding: utf-8 -*-
+from django.shortcuts import render, redirect
 from contacts.models import SiteContacts
-from .models import Product, ProductMaterial, ProductMark, ProductType
+from .models import Product, ProductMaterial, ProductMark, ProductType, ProductCondition, ProductStandart
 from django.core.paginator import Paginator
+from django.http import JsonResponse
 
 
 def products_page(request):
@@ -9,6 +11,7 @@ def products_page(request):
     materials = ProductMaterial.objects.all()
     marks = ProductMark.objects.all()
     types = ProductType.objects.all()
+    conditions = ProductCondition.objects.all()
 
     filters = {}
     query = ''
@@ -55,3 +58,45 @@ def products_page(request):
         page_next = ''
 
     return render(request, 'products.html', locals())
+
+
+def load_products(request):
+    contacts = SiteContacts.objects.first()
+    if request.method == 'GET':
+        if request.user.is_superuser:
+            return render(request, 'products-loader.html', locals())
+        else:
+            return redirect('/')
+    else:
+        if request.user.is_superuser:
+            file = request.FILES['file']
+            material, material_created = ProductMaterial.objects.get_or_create(name='алюминий')
+            for line in file:
+                params = line.decode('cp1251').split('\t')[:-1]
+                product_type, created1 = ProductType.objects.get_or_create(name=params[0])
+                if params[1] is not '' or params[1] is not '\xa0':
+                    state, created2 = ProductCondition.objects.get_or_create(name=params[1])
+                mark, created3 = ProductMark.objects.get_or_create(name=params[2])
+                standart, created4 = ProductStandart.objects.get_or_create(name=params[3])
+                try:
+                    thickness = params[4]
+                except:
+                    thickness = ''
+                try:
+                    width = params[5]
+                except:
+                    width = ''
+                try:
+                    lenght = params[6]
+                except:
+                    lenght = ''
+                try:
+                    pluck = params[7]
+                except:
+                    pluck = ''
+                product = Product.objects.create(thickness=thickness, width=width, length=lenght,
+                                                 pluck=pluck, product_type=product_type, product_condition=state,
+                                                 product_mark=mark, product_standart=standart, product_material=material)
+            return JsonResponse({'success': 'true'})
+        else:
+            return JsonResponse({'success': 'false'})

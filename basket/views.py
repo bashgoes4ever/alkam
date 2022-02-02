@@ -31,7 +31,7 @@ def add_to_basket(request):
             'product': ProductShop.objects.get(id=request.POST.get('product_id')),
             'units': units
         }
-        product, created = ProductInBasket.objects.get_or_create(**product_params)
+        product, created = ProductInBasket.objects.get_or_create(**product_params, defaults={'quantity': quantity})
         if not created:
             if units == product.units:
                 product.quantity += int(quantity)
@@ -143,7 +143,7 @@ def send_application(request):
         u'Оформление заказа на сайте',
         message,
         'mail@axis-marketing.ru',
-        ['marukhelin@gmail.com'],
+        ['alkam.kamensk@yandex.ru'],
         fail_silently=False,
     )
     request.session.flush()

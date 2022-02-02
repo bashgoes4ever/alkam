@@ -10,7 +10,7 @@
 					<main>
 						<div class="main__left">
 							<h1>Производство <br>и поставка <br>алюминиевых <br>полуфабрикатов</h1>
-							<button class="button">Получить ком. пред.</button>
+							<button class="button white">Получить ком. пред.</button>
 						</div>
 						<div class="main__right">
 							<div class="main__item">
@@ -44,7 +44,7 @@
 							</div>
 							<div class="block2__item vc">
 								<div class="block2__item__img block2__item__img3"><img src="{% static 'img/block2/3.png' %}" alt=""/></div>
-								<div class="text">Реализуем более 500 тонн в год <br>алюминиевых полуфабрикатов</div>
+								<div class="text">Мощности производства позволяют <br>выпускать более 500 тонн <br>алюминиевых полуфабрикатов в год.</div>
 							</div>
 						</div>
 						<div class="block2__right">
@@ -72,13 +72,13 @@
 					<div class="block3__flex">
 						<div class="block3__item">
 							<div class="block3__item__img block3__item__img1"><img src="{% static 'img/block3/1.png' %}" alt=""/></div>
-							<div class="title">Соблюдиение сроков <br>поставок</div>
+							<div class="title">Соблюдение сроков <br>поставок</div>
 							<div class="text">Мы четко соблюдаем оговоренные <br>сроки и выполняем поставки точно <br>в назначенное время</div>
 						</div>
 						<div class="block3__item">
 							<div class="block3__item__img block3__item__img2"><img src="{% static 'img/block3/2.png' %}" alt=""/></div>
-							<div class="title">Отсрочка платежей <br>постоянным клиентам</div>
-							<div class="text">Предоставляем постоянным клиентам <br>отсрочки платежей и персональные <br>условия сотрудничества</div>
+							<div class="title">Специальные предложения <br>для постоянных клиентов</div>
+							<div class="text">Предоставляем товарный кредит <br>постоянным клиентам и предлагаем <br>персональные условия сотрудничества</div>
 						</div>
 						<div class="block3__item">
 							<div class="block3__item__img"><img src="{% static 'img/block3/3.png' %}" alt=""/></div>
@@ -88,11 +88,11 @@
 						<div class="block3__item">
 							<div class="block3__item__img block3__item__img4"><img src="{% static 'img/block3/4.png' %}" alt=""/></div>
 							<div class="title">Изготовление продукции <br>нестандартных размеров</div>
-							<div class="text">По вашему желанию мы можем <br>изготовить нестандартную продукцию <br>по длине, ширине или толщине</div>
+							<div class="text">По вашему желанию мы можем <br>изготовить нестандартную продукцию <br>по длине или ширине</div>
 						</div>
 						<div class="block3__item">
 							<div class="block3__item__img"><img src="{% static 'img/block3/5.png' %}" alt=""/></div>
-							<div class="title">Лучшая стоимость <br>на рынке</div>
+							<div class="title">Лучшая стоимость <br>на продукцию</div>
 							<div class="text">Собственное производство, контракты <br>с крупными заводами производителями <br>позволяют предоставлять конкурентные цены</div>
 						</div>
 					</div>
@@ -153,7 +153,7 @@
                         {% endfor %}
 					</div>
                     <a href="/news">
-						<button class="button">Еще новости</button>
+						<button class="button white">Еще новости</button>
                     </a>
 				</div>
 			</section>
@@ -164,7 +164,7 @@
 						<div class="descriptor">Заполните форму и получите персональное <br>коммерческое предложение</div>
 						<div class="fieldset">
 							<input type="text" name="mark" placeholder="Марка, размер*" required="required"/>
-							<input type="text" name="business" placeholder="Род деятельности"/>
+							<input type="text" name="business" placeholder="Вид деятельности"/>
 							<input type="text" name="phone" placeholder="Номер телефона*" required="required"/>
 							<input type="text" name="name" placeholder="Контактное лицо*" required="required"/>
 						</div>
@@ -174,7 +174,7 @@
 						<input type="hidden" name="type" value="Заявка на КП / Главная"/>
 						<button class="button">Получить коммерческое предложение</button>
 						<div class="checkbox">
-							<input type="checkbox" id="c1" checked="checked"/>
+							<input type="checkbox" id="c1" name="polit" value="1" required/>
 							<label for="c1">
 								<div class="box"><img src="{% static 'img/icons/check.png' %}" alt=""/></div><span>Я принимаю условия политики конфиденциальности <br>и даю сагласие на обработку персональных данных</span>
 							</label>
