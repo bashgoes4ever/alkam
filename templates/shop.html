@@ -6,12 +6,12 @@
 {% block body %}
 
 
-            <section class="block17">
-				<div class="container">
-					<div class="block17__header vc">
-						<div class="section__title">Розничная торговля</div>
-                        <a href="{% url 'basket_page' %}" class="cart">
-							<div class="cart-num">
+    <section class="block17">
+        <div class="container">
+            <div class="block17__header vc">
+                <div class="section__title">ПРОИЗВОДИТЕЛЯМ</div>
+                <a href="{% url 'basket_page' %}" class="cart">
+                    <div class="cart-num">
                                 <span>
                                     {% if product_len %}
                                         {{ product_len }}
@@ -19,185 +19,225 @@
                                         0
                                     {% endif %}
                                 </span>
-                            </div>
-                            <img src="{% static 'img/icons/cart.png' %}" alt=""/>
-                            <span class="title">Корзина</span>
-                        </a>
-					</div>
-					<div class="block17__table-outer">
-						<div class="block17__table-inner">
-							<div class="block17__filters-wrap block18__filters-wrap">
-								<form class="block17__filters block18__filters" method="post" action="{% url 'shop_page' %}">
-									<div class="select-wrapper">
-										<select name="materials">
-											<option value="all">все материалы</option>
-                                            {% for material in materials %}
-											<option value="{{ material.name }}"
+                    </div>
+                    <img src="{% static 'img/icons/cart.png' %}" alt=""/>
+                    <span class="title">Корзина</span>
+                </a>
+            </div>
+            <p style="margin-bottom: 20px;">Высокое качество нашей продукции вкупе с ее конкурентной ценой позволяет нам оставаться
+                приоритетным поставщиком для крупнейших промышленных предприятий России, СНГ -лидеров
+                своей отрасли, в том числе, таких концернов как: «РОСТЕХ», ВКО «Алмаз-Антей», «Газпром»,
+                «Роснефть» и прочих.<br><br>
+                Почему предприятия-конечные потребители выбирают нас:<br><br>
+                1. Отгрузки в любых объемах в зависимости от потребности заказчика:<br>
+                Минимальный объем заказа на один типоразмер продукции собственного производства
+                согласовывается индивидуально, что выгодно отличает нас от остальных крупных заводов-
+                изготовителей, где минимальный объем заказа начинается от нескольких тонн на каждый размер.<br><br>
+                2. «Комфортное» сотрудничество для предприятий-конечных изготовителей:<br>
+                - работа по ГОЗ;<br>
+                - оперативные решения по заказу, без лишней бюрократии;<br>
+                - возможная отсрочка платежа;<br>
+                - возможность поставки продукции собственного производства вкупе с формированием
+                комплексной заявки в соответствии с Вашим заказом, для последующей отгрузки с
+                нашего склада;<br>
+                - четкое соблюдение сроков поставки;<br>
+                - аккредитация на всех тендерных площадках для участия в закупочных процедурах;<br>
+                - строгий контроль качества выпускаемой продукции.<br><br>
+                Как производитель – мы готовы предложить специальные цены на продукцию собственного
+                изготовления, чтобы выстроить взаимовыгодные партнерские отношения с Вашей организацией!
+                Готовы рассмотреть оптимальные условия для сотрудничества, -рассмотреть систему скидок, в
+                зависимости от объема Ваших заказов, выбрать оптимальную для Вас логистическую схему
+                доставки. Согласовать объемы, необходимые именно под Вашу потребность, а не кратные
+                минимальной норме заказа, установленные на любом крупном заводе – изготовителе, что будет
+                являться для Вас преимуществом!<br><br>
+                Наша технологическая служба готова проконсультировать по техническим вопросам. Мы всегда
+                готовы к диалогу и встречным шагам!</p>
+            <div class="block17__table-outer">
+                <div class="block17__table-inner">
+                    <div class="block17__filters-wrap block18__filters-wrap">
+                        <form class="block17__filters block18__filters" method="post" action="{% url 'shop_page' %}">
+                            <div class="select-wrapper">
+                                <select name="materials">
+                                    <option value="all">все материалы</option>
+                                    {% for material in materials %}
+                                        <option value="{{ material.name }}"
                                                 {% if material.name in query %}
-                                                    selected
+                                                selected
                                                 {% endif %}
-                                            >{{ material.name }}</option>
-                                            {% endfor %}
-										</select>
-									</div>
-									<div class="select-wrapper">
-										<select name="marks">
-											<option value="all">все марки</option>
-                                            {% for mark in marks %}
-											<option value="{{ mark.name }}"
+                                        >{{ material.name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="select-wrapper">
+                                <select name="marks">
+                                    <option value="all">все марки</option>
+                                    {% for mark in marks %}
+                                        <option value="{{ mark.name }}"
                                                 {% if mark.name in query %}
-                                                    selected
+                                                selected
                                                 {% endif %}
-                                            >{{ mark.name }}</option>
-                                            {% endfor %}
-										</select>
-									</div>
-									<div class="select-wrapper">
-										<select name="thickness">
-											<option value="all">любая толщина</option>
-                                            {% for value in thickness %}
-											<option value="{{ value }}"
+                                        >{{ mark.name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="select-wrapper">
+                                <select name="thickness">
+                                    <option value="all">любая толщина</option>
+                                    {% for value in thickness %}
+                                        <option value="{{ value }}"
                                                 {% if value in query %}
-                                                    selected
+                                                selected
                                                 {% endif %}
-                                            >{{ value }}</option>
-                                            {% endfor %}
-										</select>
-									</div>
-									<button>Показать</button>
-								</form>
-							</div>
-							<div class="block18__sort-wrap">
-                                <button class="block18__sale-btn">распродажа со склада</button>
-								<div class="block18__sort clearfix">
-									<div class="select-wrapper">
-										<select name="thickness">
-											<option>Размер</option>
-											<option value="down">от большего к меньшему</option>
-											<option value="up">от меньшего к большему</option>
-										</select>
-									</div>
-									<div class="select-wrapper">
-										<select name="price_per_kilo">
-											<option>цена</option>
-											<option value="down">от большего к меньшему</option>
-											<option value="up">от меньшего к большему</option>
-										</select>
-									</div>
-								</div>
-							</div>
-							<div class="block17__table">
-								<div class="block17__th">
-									<div class="block17__cell b17-w8"><span>Наименование</span></div>
-									<div class="block17__cell b17-w9"><span>Стоимость*, <br>руб./ед.</span></div>
-									<div class="block17__cell b17-w10"><span>Кол-во</span></div>
-									<div class="block17__cell b17-w11"><span>Сумма. руб</span></div>
-								</div>
-								<div class="block17__body"
-                                     data-sort_name=""
-                                     data-sort=""
-                                     data-materials=""
-                                     data-marks=""
-                                     data-thickness=""
-                                     data-sale=""
-                                >
-                                    {% for product in page.object_list %}
-									<div class="block17__tr" id="{{ product.id }}">
-										<div class="block17__cell b17-w8 block18__cell">
-                                            <span>{{ product.name }}</span>
-                                        </div>
-										<div class="block17__cell b17-w9 block18__cell block18__price">
+                                        >{{ value }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <button>Показать</button>
+                        </form>
+                    </div>
+                    <div class="block18__sort-wrap">
+                        <button class="block18__sale-btn">распродажа со склада</button>
+                        <div class="block18__sort clearfix">
+                            <div class="select-wrapper">
+                                <select name="thickness">
+                                    <option>Размер</option>
+                                    <option value="down">от большего к меньшему</option>
+                                    <option value="up">от меньшего к большему</option>
+                                </select>
+                            </div>
+                            <div class="select-wrapper">
+                                <select name="price_per_kilo">
+                                    <option>цена</option>
+                                    <option value="down">от большего к меньшему</option>
+                                    <option value="up">от меньшего к большему</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block17__table">
+                        <div class="block17__th">
+                            <div class="block17__cell b17-w8"><span>Наименование</span></div>
+                            <div class="block17__cell b17-w9"><span>Стоимость*, <br>руб./ед.</span></div>
+                            <div class="block17__cell b17-w10"><span>Кол-во</span></div>
+                            <div class="block17__cell b17-w11"><span>Сумма. руб</span></div>
+                        </div>
+                        <div class="block17__body"
+                             data-sort_name=""
+                             data-sort=""
+                             data-materials=""
+                             data-marks=""
+                             data-thickness=""
+                             data-sale=""
+                        >
+                            {% for product in page.object_list %}
+                                <div class="block17__tr" id="{{ product.id }}">
+                                    <div class="block17__cell b17-w8 block18__cell">
+                                        <span>{{ product.name }}</span>
+                                    </div>
+                                    <div class="block17__cell b17-w9 block18__cell block18__price">
                                             <span>
-                                                <span class='price' data-price="{{ product.price_per_kilo }}">{{ product.price_per_kilo }} р</span>
+                                                <span class='price'
+                                                      data-price="{{ product.price_per_kilo }}">{{ product.price_per_kilo }} р</span>
                                                 <br>в т.ч. 20 % НДС
                                             </span>
+                                    </div>
+                                    <div class="block17__cell b17-w10 block18__cell block18__quanity">
+                                        <div class="block18__cell__select">
+                                            <input type="number" name="weight" value="1" required>
+                                            <select name="units">
+                                                <option>кг</option>
+                                                <option>шт</option>
+                                            </select>
                                         </div>
-										<div class="block17__cell b17-w10 block18__cell block18__quanity">
-											<div class="block18__cell__select">
-                                                <input type="number" name="weight" value="1" required>
-												<select name="units">
-													<option>кг</option>
-													<option>шт</option>
-												</select>
-											</div>
-										</div>
-										<div class="block17__cell b17-w12 block18__cell block18__total-price">
-                                            <span><span class='price'>{{ product.price_per_kilo }} р</span></span>
-                                        </div>
-										<div class="block17__cell b17-w13 block18__cell block18__buy">
-                                            <form action="{% url 'add_to_basket' %}" method="post">
-                                                <input type="hidden" name="product_id" value="{{ product.id }}">
-                                                <input type="hidden" name="product_units" value="кг">
-                                                <input type="hidden" name="product_quantity" value="1">
-											    <button class="block18__buy-btn">купить</button>
-                                            </form>
-										</div>
-									</div>
+                                    </div>
+                                    <div class="block17__cell b17-w12 block18__cell block18__total-price">
+                                        <span><span class='price'>{{ product.price_per_kilo }} р</span></span>
+                                    </div>
+                                    <div class="block17__cell b17-w13 block18__cell block18__buy">
+                                        <form action="{% url 'add_to_basket' %}" method="post">
+                                            <input type="hidden" name="product_id" value="{{ product.id }}">
+                                            <input type="hidden" name="product_units" value="кг">
+                                            <input type="hidden" name="product_quantity" value="1">
+                                            <button class="block18__buy-btn">купить</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        {% if is_paginated %}
+                            <nav aria-label="Page navigation example" class="block18__nav">
+                                <ul class="pagination">
+                                    <li class="nav-button-prev page-item{% if not page_prev %} disabled{% endif %}">
+                                        <a class="page-link" href="{{ page_prev }}">Назад</a>
+                                    </li>
+
+                                    {% for n in page.paginator.page_range %}
+                                        {% if n > page.number|add:-3 and n < page.number|add:3 %}
+                                            <li class="page-item{% if page.number == n %} active{% endif %}">
+                                                <a class="page-link" href="{{ n }}">{{ n }}</a>
+                                            </li>
+                                        {% endif %}
                                     {% endfor %}
-								</div>
-                                {% if is_paginated %}
-                                    <nav aria-label="Page navigation example" class="block18__nav">
-                                      <ul class="pagination">
-                                        <li class="nav-button-prev page-item{% if not page_prev %} disabled{% endif %}">
-                                            <a class="page-link" href="{{ page_prev }}">Назад</a>
-                                        </li>
 
-                                          {% for n in page.paginator.page_range %}
-                                              {% if n > page.number|add:-3 and n < page.number|add:3 %}
-                                                <li class="page-item{% if page.number == n %} active{% endif %}">
-                                                    <a class="page-link" href="{{ n }}">{{ n }}</a>
-                                                </li>
-                                              {% endif %}
-                                          {% endfor %}
-
-                                        <li class="nav-button-next page-item{% if not page_next %} disabled{% endif %}">
-                                            <a class="page-link" href="{{ page_next }}">Далее</a>
-                                        </li>
-                                      </ul>
-                                    </nav>
-                                {% endif %}
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			<section class="block15 block19"><img src="{% static 'img/block19/bg.png' %}" alt="" class="block__bg"/>
-				<div class="container">
-					<div class="block15__flex">
-						<div class="section__title">Оптово-розничная <br>торговля <br>металлопроката</div>
-						<div class="text">ООО «Алкам плюс» осуществляет розничную торговлю алюминиевым прокатом из наличия и под заказ со склада в г. Каменск-Уральский. Реализация продукции производится в любом количестве – от одного изделия, так и целыми партиями. На нашем складе всегда широкий спектр номенклатур готовой продукции. Вся продукция, которую реализует наша компания, имеет высокое качество, которое подтверждено необходимыми сертификатами.</div>
-					</div>
-					<div class="block15__flex">
-						<div class="section__title">Ассортимент <br>и доставка</div>
-						<div class="text">На нашем складе всегда широкий спектр номенклатур готовой продукции. В каталог металлопроката, который наша компания предлагает, входит более 1 000 наименований. Отправка товаров производится надежными транспортными компаниями. Также возможен самовывоз со склада.</div>
-					</div>
-				</div>
-			</section>
-			<section class="block7">
-				<div class="container">
-					<form class="block7__form" action="{% url 'send_form' %}">
-						<div class="section__title">Вам нужен надёжный <br>поставщик ? </div>
-						<div class="descriptor">Заполните форму и получите персональное <br>коммерческое предложение</div>
-						<div class="fieldset">
-							<input type="text" name="mark" placeholder="Марка, размер*" required="required"/>
-							<input type="text" name="business" placeholder="Вид деятельности"/>
-							<input type="text" name="phone" placeholder="Номер телефона*" required="required"/>
-							<input type="text" name="name" placeholder="Контактное лицо*" required="required"/>
-						</div>
-						<input type="text" name="company_name" placeholder="Наименование предприятия или ИП*" required="required"/>
-                        {% csrf_token %}
-						<textarea name="text" placeholder="Комментарии к заказу"></textarea>
-						<input type="hidden" name="type" value="Заявка на КП / Розничная торговля"/>
-						<button class="button">Получить коммерческое предложение</button>
-						<div class="checkbox">
-							<input type="checkbox" id="c1" value="1" name="polit" required/>
-							<label for="c1">
-								<div class="box"><img src="{% static 'img/icons/check.png' %}" alt=""/></div><span>Я принимаю условия политики конфиденциальности <br>и даю сагласие на обработку персональных данных</span>
-							</label>
-						</div>
-					</form><img src="{% static 'img/block7/1.png' %}" alt="" class="block7__img"/>
-				</div>
-			</section>
+                                    <li class="nav-button-next page-item{% if not page_next %} disabled{% endif %}">
+                                        <a class="page-link" href="{{ page_next }}">Далее</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="block15 block19"><img src="{% static 'img/block19/bg.png' %}" alt="" class="block__bg"/>
+        <div class="container">
+            <div class="block15__flex">
+                <div class="section__title">Оптово-розничная <br>торговля <br>металлопроката</div>
+                <div class="text">ООО «Алкам плюс» осуществляет розничную торговлю алюминиевым прокатом из наличия и под
+                    заказ со склада в г. Каменск-Уральский. Реализация продукции производится в любом количестве – от
+                    одного изделия, так и целыми партиями. На нашем складе всегда широкий спектр номенклатур готовой
+                    продукции. Вся продукция, которую реализует наша компания, имеет высокое качество, которое
+                    подтверждено необходимыми сертификатами.
+                </div>
+            </div>
+            <div class="block15__flex">
+                <div class="section__title">Ассортимент <br>и доставка</div>
+                <div class="text">На нашем складе всегда широкий спектр номенклатур готовой продукции. В каталог
+                    металлопроката, который наша компания предлагает, входит более 1 000 наименований. Отправка товаров
+                    производится надежными транспортными компаниями. Также возможен самовывоз со склада.
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="block7">
+        <div class="container">
+            <form class="block7__form" action="{% url 'send_form' %}">
+                <div class="section__title">Вам нужен надёжный <br>поставщик ?</div>
+                <div class="descriptor">Заполните форму и получите персональное <br>коммерческое предложение</div>
+                <div class="fieldset">
+                    <input type="text" name="mark" placeholder="Марка, размер*" required="required"/>
+                    <input type="text" name="business" placeholder="Вид деятельности"/>
+                    <input type="text" name="phone" placeholder="Номер телефона*" required="required"/>
+                    <input type="text" name="name" placeholder="Контактное лицо*" required="required"/>
+                </div>
+                <input type="text" name="company_name" placeholder="Наименование предприятия или ИП*"
+                       required="required"/>
+                {% csrf_token %}
+                <textarea name="text" placeholder="Комментарии к заказу"></textarea>
+                <input type="hidden" name="type" value="Заявка на КП / Розничная торговля"/>
+                <button class="button">Получить коммерческое предложение</button>
+                <div class="checkbox">
+                    <input type="checkbox" id="c1" value="1" name="polit" required/>
+                    <label for="c1">
+                        <div class="box"><img src="{% static 'img/icons/check.png' %}" alt=""/></div>
+                        <span>Я принимаю условия политики конфиденциальности <br>и даю сагласие на обработку персональных данных</span>
+                    </label>
+                </div>
+            </form>
+            <img src="{% static 'img/block7/1.png' %}" alt="" class="block7__img"/>
+        </div>
+    </section>
 
 
 {% endblock %}
