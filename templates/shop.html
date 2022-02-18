@@ -24,7 +24,8 @@
                     <span class="title">Корзина</span>
                 </a>
             </div>
-            <p style="margin-bottom: 40px;">Высокое качество нашей продукции вкупе с ее конкурентной ценой позволяет нам оставаться
+            <p style="margin-bottom: 40px;">
+                Высокое качество нашей продукции вкупе с ее конкурентной ценой позволяет нам оставаться
                 приоритетным поставщиком для крупнейших промышленных предприятий России, СНГ -лидеров
                 своей отрасли, в том числе, таких концернов как: «РОСТЕХ», ВКО «Алмаз-Антей», «Газпром»,
                 «Роснефть» и прочих.<br><br>
@@ -43,151 +44,153 @@
                 - четкое соблюдение сроков поставки;<br>
                 - аккредитация на всех тендерных площадках для участия в закупочных процедурах;<br>
                 - строгий контроль качества выпускаемой продукции.<br><br>
-                Как производитель – мы готовы предложить специальные цены на продукцию собственного
-                изготовления, чтобы выстроить взаимовыгодные партнерские отношения с Вашей организацией!
-                Готовы рассмотреть оптимальные условия для сотрудничества, -рассмотреть систему скидок, в
-                зависимости от объема Ваших заказов, выбрать оптимальную для Вас логистическую схему
-                доставки. Согласовать объемы, необходимые именно под Вашу потребность, а не кратные
-                минимальной норме заказа, установленные на любом крупном заводе – изготовителе, что будет
-                являться для Вас преимуществом!<br><br>
+                Как производитель имеем возможность предложить специальные цены на продукцию
+                собственного изготовления, чтобы выстроить взаимовыгодные партнерские отношения с Вашей
+                организацией!<br><br>
+                Готовы рассмотреть оптимальные условия для сотрудничества, а именно:<br><br>
+                -предложить систему скидок, в зависимости от объема Ваших заказов, выбрать оптимальную для
+                Вас логистическую схему доставки. Согласовать объемы, необходимые именно под Вашу
+                потребность, а не кратные минимальной норме заказа, установленные на любом крупном заводе<br><br>
+                – изготовителе, что будет являться для Вас преимуществом!
                 Наша технологическая служба готова проконсультировать по техническим вопросам. Мы всегда
-                готовы к диалогу и встречным шагам!</p>
-            <div class="block17__table-outer">
-                <div class="block17__table-inner">
-                    <div class="block17__filters-wrap block18__filters-wrap">
-                        <form class="block17__filters block18__filters" method="post" action="{% url 'shop_page' %}">
-                            <div class="select-wrapper">
-                                <select name="materials">
-                                    <option value="all">все материалы</option>
-                                    {% for material in materials %}
-                                        <option value="{{ material.name }}"
-                                                {% if material.name in query %}
-                                                selected
-                                                {% endif %}
-                                        >{{ material.name }}</option>
-                                    {% endfor %}
-                                </select>
-                            </div>
-                            <div class="select-wrapper">
-                                <select name="marks">
-                                    <option value="all">все марки</option>
-                                    {% for mark in marks %}
-                                        <option value="{{ mark.name }}"
-                                                {% if mark.name in query %}
-                                                selected
-                                                {% endif %}
-                                        >{{ mark.name }}</option>
-                                    {% endfor %}
-                                </select>
-                            </div>
-                            <div class="select-wrapper">
-                                <select name="thickness">
-                                    <option value="all">любая толщина</option>
-                                    {% for value in thickness %}
-                                        <option value="{{ value }}"
-                                                {% if value in query %}
-                                                selected
-                                                {% endif %}
-                                        >{{ value }}</option>
-                                    {% endfor %}
-                                </select>
-                            </div>
-                            <button>Показать</button>
-                        </form>
-                    </div>
-                    <div class="block18__sort-wrap">
-                        <button class="block18__sale-btn">распродажа со склада</button>
-                        <div class="block18__sort clearfix">
-                            <div class="select-wrapper">
-                                <select name="thickness">
-                                    <option>Размер</option>
-                                    <option value="down">от большего к меньшему</option>
-                                    <option value="up">от меньшего к большему</option>
-                                </select>
-                            </div>
-                            <div class="select-wrapper">
-                                <select name="price_per_kilo">
-                                    <option>цена</option>
-                                    <option value="down">от большего к меньшему</option>
-                                    <option value="up">от меньшего к большему</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="block17__table">
-                        <div class="block17__th">
-                            <div class="block17__cell b17-w8"><span>Наименование</span></div>
-                            <div class="block17__cell b17-w9"><span>Стоимость*, <br>руб./ед.</span></div>
-                            <div class="block17__cell b17-w10"><span>Кол-во</span></div>
-                            <div class="block17__cell b17-w11"><span>Сумма. руб</span></div>
-                        </div>
-                        <div class="block17__body"
-                             data-sort_name=""
-                             data-sort=""
-                             data-materials=""
-                             data-marks=""
-                             data-thickness=""
-                             data-sale=""
-                        >
-                            {% for product in page.object_list %}
-                                <div class="block17__tr" id="{{ product.id }}">
-                                    <div class="block17__cell b17-w8 block18__cell">
-                                        <span>{{ product.name }}</span>
-                                    </div>
-                                    <div class="block17__cell b17-w9 block18__cell block18__price">
-                                            <span>
-                                                <span class='price'
-                                                      data-price="{{ product.price_per_kilo }}">{{ product.price_per_kilo }} р</span>
-                                                <br>в т.ч. 20 % НДС
-                                            </span>
-                                    </div>
-                                    <div class="block17__cell b17-w10 block18__cell block18__quanity">
-                                        <div class="block18__cell__select">
-                                            <input type="number" name="weight" value="1" required>
-                                            <select name="units">
-                                                <option>кг</option>
-                                                <option>шт</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="block17__cell b17-w12 block18__cell block18__total-price">
-                                        <span><span class='price'>{{ product.price_per_kilo }} р</span></span>
-                                    </div>
-                                    <div class="block17__cell b17-w13 block18__cell block18__buy">
-                                        <form action="{% url 'add_to_basket' %}" method="post">
-                                            <input type="hidden" name="product_id" value="{{ product.id }}">
-                                            <input type="hidden" name="product_units" value="кг">
-                                            <input type="hidden" name="product_quantity" value="1">
-                                            <button class="block18__buy-btn">купить</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            {% endfor %}
-                        </div>
-                        {% if is_paginated %}
-                            <nav aria-label="Page navigation example" class="block18__nav">
-                                <ul class="pagination">
-                                    <li class="nav-button-prev page-item{% if not page_prev %} disabled{% endif %}">
-                                        <a class="page-link" href="{{ page_prev }}">Назад</a>
-                                    </li>
-
-                                    {% for n in page.paginator.page_range %}
-                                        {% if n > page.number|add:-3 and n < page.number|add:3 %}
-                                            <li class="page-item{% if page.number == n %} active{% endif %}">
-                                                <a class="page-link" href="{{ n }}">{{ n }}</a>
-                                            </li>
-                                        {% endif %}
-                                    {% endfor %}
-
-                                    <li class="nav-button-next page-item{% if not page_next %} disabled{% endif %}">
-                                        <a class="page-link" href="{{ page_next }}">Далее</a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
+                готовы к диалогу и открыты для взаимовыгодного сотрудничества!
+            </p>
+{#            <div class="block17__table-outer">#}
+{#                <div class="block17__table-inner">#}
+{#                    <div class="block17__filters-wrap block18__filters-wrap">#}
+{#                        <form class="block17__filters block18__filters" method="post" action="{% url 'shop_page' %}">#}
+{#                            <div class="select-wrapper">#}
+{#                                <select name="materials">#}
+{#                                    <option value="all">все материалы</option>#}
+{#                                    {% for material in materials %}#}
+{#                                        <option value="{{ material.name }}"#}
+{#                                                {% if material.name in query %}#}
+{#                                                selected#}
+{#                                                {% endif %}#}
+{#                                        >{{ material.name }}</option>#}
+{#                                    {% endfor %}#}
+{#                                </select>#}
+{#                            </div>#}
+{#                            <div class="select-wrapper">#}
+{#                                <select name="marks">#}
+{#                                    <option value="all">все марки</option>#}
+{#                                    {% for mark in marks %}#}
+{#                                        <option value="{{ mark.name }}"#}
+{#                                                {% if mark.name in query %}#}
+{#                                                selected#}
+{#                                                {% endif %}#}
+{#                                        >{{ mark.name }}</option>#}
+{#                                    {% endfor %}#}
+{#                                </select>#}
+{#                            </div>#}
+{#                            <div class="select-wrapper">#}
+{#                                <select name="thickness">#}
+{#                                    <option value="all">любая толщина</option>#}
+{#                                    {% for value in thickness %}#}
+{#                                        <option value="{{ value }}"#}
+{#                                                {% if value in query %}#}
+{#                                                selected#}
+{#                                                {% endif %}#}
+{#                                        >{{ value }}</option>#}
+{#                                    {% endfor %}#}
+{#                                </select>#}
+{#                            </div>#}
+{#                            <button>Показать</button>#}
+{#                        </form>#}
+{#                    </div>#}
+{#                    <div class="block18__sort-wrap">#}
+{#                        <button class="block18__sale-btn">распродажа со склада</button>#}
+{#                        <div class="block18__sort clearfix">#}
+{#                            <div class="select-wrapper">#}
+{#                                <select name="thickness">#}
+{#                                    <option>Размер</option>#}
+{#                                    <option value="down">от большего к меньшему</option>#}
+{#                                    <option value="up">от меньшего к большему</option>#}
+{#                                </select>#}
+{#                            </div>#}
+{#                            <div class="select-wrapper">#}
+{#                                <select name="price_per_kilo">#}
+{#                                    <option>цена</option>#}
+{#                                    <option value="down">от большего к меньшему</option>#}
+{#                                    <option value="up">от меньшего к большему</option>#}
+{#                                </select>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="block17__table">#}
+{#                        <div class="block17__th">#}
+{#                            <div class="block17__cell b17-w8"><span>Наименование</span></div>#}
+{#                            <div class="block17__cell b17-w9"><span>Стоимость*, <br>руб./ед.</span></div>#}
+{#                            <div class="block17__cell b17-w10"><span>Кол-во</span></div>#}
+{#                            <div class="block17__cell b17-w11"><span>Сумма. руб</span></div>#}
+{#                        </div>#}
+{#                        <div class="block17__body"#}
+{#                             data-sort_name=""#}
+{#                             data-sort=""#}
+{#                             data-materials=""#}
+{#                             data-marks=""#}
+{#                             data-thickness=""#}
+{#                             data-sale=""#}
+{#                        >#}
+{#                            {% for product in page.object_list %}#}
+{#                                <div class="block17__tr" id="{{ product.id }}">#}
+{#                                    <div class="block17__cell b17-w8 block18__cell">#}
+{#                                        <span>{{ product.name }}</span>#}
+{#                                    </div>#}
+{#                                    <div class="block17__cell b17-w9 block18__cell block18__price">#}
+{#                                            <span>#}
+{#                                                <span class='price'#}
+{#                                                      data-price="{{ product.price_per_kilo }}">{{ product.price_per_kilo }} р</span>#}
+{#                                                <br>в т.ч. 20 % НДС#}
+{#                                            </span>#}
+{#                                    </div>#}
+{#                                    <div class="block17__cell b17-w10 block18__cell block18__quanity">#}
+{#                                        <div class="block18__cell__select">#}
+{#                                            <input type="number" name="weight" value="1" required>#}
+{#                                            <select name="units">#}
+{#                                                <option>кг</option>#}
+{#                                                <option>шт</option>#}
+{#                                            </select>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                    <div class="block17__cell b17-w12 block18__cell block18__total-price">#}
+{#                                        <span><span class='price'>{{ product.price_per_kilo }} р</span></span>#}
+{#                                    </div>#}
+{#                                    <div class="block17__cell b17-w13 block18__cell block18__buy">#}
+{#                                        <form action="{% url 'add_to_basket' %}" method="post">#}
+{#                                            <input type="hidden" name="product_id" value="{{ product.id }}">#}
+{#                                            <input type="hidden" name="product_units" value="кг">#}
+{#                                            <input type="hidden" name="product_quantity" value="1">#}
+{#                                            <button class="block18__buy-btn">купить</button>#}
+{#                                        </form>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            {% endfor %}#}
+{#                        </div>#}
+{#                        {% if is_paginated %}#}
+{#                            <nav aria-label="Page navigation example" class="block18__nav">#}
+{#                                <ul class="pagination">#}
+{#                                    <li class="nav-button-prev page-item{% if not page_prev %} disabled{% endif %}">#}
+{#                                        <a class="page-link" href="{{ page_prev }}">Назад</a>#}
+{#                                    </li>#}
+{##}
+{#                                    {% for n in page.paginator.page_range %}#}
+{#                                        {% if n > page.number|add:-3 and n < page.number|add:3 %}#}
+{#                                            <li class="page-item{% if page.number == n %} active{% endif %}">#}
+{#                                                <a class="page-link" href="{{ n }}">{{ n }}</a>#}
+{#                                            </li>#}
+{#                                        {% endif %}#}
+{#                                    {% endfor %}#}
+{##}
+{#                                    <li class="nav-button-next page-item{% if not page_next %} disabled{% endif %}">#}
+{#                                        <a class="page-link" href="{{ page_next }}">Далее</a>#}
+{#                                    </li>#}
+{#                                </ul>#}
+{#                            </nav>#}
+{#                        {% endif %}#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
         </div>
     </section>
     <section class="block15 block19"><img src="{% static 'img/block19/bg.png' %}" alt="" class="block__bg"/>

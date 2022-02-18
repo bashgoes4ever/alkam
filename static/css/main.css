@@ -883,7 +883,7 @@ footer {
 
 .block11__tabs {
   margin: 40px auto 70px auto;
-  width: 970px;
+  width: 1070px;
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flex;
@@ -1029,7 +1029,8 @@ footer {
 .block14__tabs {
   margin: 45px auto 75px auto; }
   .block14__tabs .block11__tab {
-    width: 386px; }
+    width: auto;
+  flex: 1 1 0;}
 
 .block14__item {
   display: none; }
