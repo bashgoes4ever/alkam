@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="919a8687-6a43-4fa4-9035-adb0d5a126e3" name="Default" comment="update">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/news/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/news/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/img/equipments/SKLAD1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/equipments/SKLAD1.jpg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -217,7 +217,7 @@
       <workItem from="1643825010135" duration="1706000" />
       <workItem from="1645208481664" duration="2004000" />
       <workItem from="1645510177291" duration="604000" />
-      <workItem from="1649615608722" duration="1202000" />
+      <workItem from="1649615608722" duration="1271000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1645209895425</created>
