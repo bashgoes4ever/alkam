@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="919a8687-6a43-4fa4-9035-adb0d5a126e3" name="Default" comment="">
+    <list default="true" id="919a8687-6a43-4fa4-9035-adb0d5a126e3" name="Default" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/img/equipments/SKLAD1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/equipments/SKLAD1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/sales.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sales.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/products.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/products.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/shop.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/shop.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/site.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/site.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,12 +159,16 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../dynotech/ui-app-wm" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.stylelint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.stylelint" value="" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -211,8 +216,19 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1560515349763</updated>
-      <workItem from="1643825010135" duration="1110000" />
+      <workItem from="1643825010135" duration="1706000" />
+      <workItem from="1645208481664" duration="2004000" />
+      <workItem from="1645510177291" duration="604000" />
+      <workItem from="1649615608722" duration="799000" />
     </task>
+    <task id="LOCAL-00001" summary="update">
+      <created>1645209895425</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1645209895425</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -255,6 +271,11 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/templates/news_single.html">
