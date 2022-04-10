@@ -50,7 +50,7 @@
 											<option value="all">все</option>
                                             {% for mark in marks %}
 											<option value="{{ mark.name }}"
-                                                {% if mark.name in query %}
+                                                {% if mark.name == query.mark %}
                                                     selected
                                                 {% endif %}
                                             >{{ mark.name }}</option>
