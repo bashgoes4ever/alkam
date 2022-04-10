@@ -5,7 +5,7 @@ from contacts.models import SiteContacts
 
 def news_page(request):
     contacts = SiteContacts.objects.first()
-    articles = Article.objects.all()
+    articles = Article.objects.all().order_by('-id')
     return render(request, 'news.html', locals())
 
 
