@@ -32,3 +32,4 @@ class Article(models.Model):
     class Meta:
         verbose_name = u"Новость"
         verbose_name_plural = u"Новости"
+        ordering = ('date',)
