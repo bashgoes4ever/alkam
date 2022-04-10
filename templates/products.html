@@ -46,15 +46,10 @@
 										</select>
 									</div>
 									<div class="select-wrapper">
-                                    {{ query }}
 										<select name="mark">
 											<option value="all">все</option>
                                             {% for mark in marks %}
-											<option value="{{ mark.name }}"
-                                                {% if mark.name in query %}
-                                                    selected
-                                                {% endif %}
-                                            >{{ mark.name }}</option>
+											<option value="{{ mark.name }}">{{ mark.name }}</option>
 											{% endfor %}
 										</select>
 									</div>
@@ -70,7 +65,7 @@
 									<div class="block17__cell b17-w5"><span>Толщина, мм</span></div>
 									<div class="block17__cell b17-w5"><span>Ширина, мм</span></div>
 									<div class="block17__cell b17-w6"><span>Длина, мм</span></div>
-									<div class="block17__cell b17-w7"></div>
+									<div class="block17__cell b17-w7"><span>Плакировка</span></div>
 								</div>
 								<div class="block17__body">
                                 {% if page.object_list %}
