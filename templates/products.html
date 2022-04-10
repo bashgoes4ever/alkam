@@ -46,11 +46,12 @@
 										</select>
 									</div>
 									<div class="select-wrapper">
+                                    {{ query }}
 										<select name="mark">
 											<option value="all">все</option>
                                             {% for mark in marks %}
 											<option value="{{ mark.name }}"
-                                                {% if mark.name == query.mark %}
+                                                {% if mark.name in query %}
                                                     selected
                                                 {% endif %}
                                             >{{ mark.name }}</option>
